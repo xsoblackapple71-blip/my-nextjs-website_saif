@@ -107,9 +107,6 @@ const container = {
   borderRadius: "12px",
   padding: "30px 25px",
   maxWidth: "600px",
-  margin: "0 auto",
-  boxShadow: "0 6px 20px rgba(0,0,0,0.08)",
-  border: "1px solid #e0e6ed",
 };
 
 const header = {

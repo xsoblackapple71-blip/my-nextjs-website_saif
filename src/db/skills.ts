@@ -12,14 +12,6 @@ import {
 
 export const videoEditingSkills = [
   {
-    name: "DaVinci Resolve",
-    image_link: "/tools/DaVinci_Resolve_Studio.png",
-    icon: Film,
-    description:
-      "Professional color grading, editing, and audio post-production",
-    color: "text-orange-400",
-  },
-  {
     name: "Adobe Premiere Pro",
     image_link: "/tools/Adobe_Premiere_Pro_CC.png",
     icon: Scissors,
@@ -42,8 +34,8 @@ export const videoEditingSkills = [
     color: "text-cyan-400",
   },
   {
-    name: "Adobe Audition",
-    image_link: "/tools/Adobe_Audition_CC.png",
+    name: "Audacity",
+    image_link: "/tools/audacity-logo.png",
     icon: Volume2,
     description: "Audio editing, noise reduction, and sound enhancement",
     color: "text-green-400",

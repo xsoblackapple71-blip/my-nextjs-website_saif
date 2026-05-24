@@ -6,17 +6,23 @@ import Link from "next/link";
 import { m, AnimatePresence  } from "framer-motion";
 import { Play } from "lucide-react";
 import GlassmorphismCard from "@/components/glassmorphism-card";
+import CategoryPlaceholder from "@/components/category-placeholder";
+import YouTubeChannelLogo from "@/components/youtube-channel-logo";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { VideoProject } from "@/types/videos";
+import { getYouTubeEmbedUrl } from "@/lib/helper";
 
 interface ProjectCardProps {
     project: VideoProject;
+    currentCategory?: string;
 }
 
-export default function ProjectCard({ project }: ProjectCardProps) {
+export default function ProjectCard({ project, currentCategory = "All" }: ProjectCardProps) {
     const [isPlaying, setIsPlaying] = useState(false);
+    const [imageError, setImageError] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
+    const embedUrl = getYouTubeEmbedUrl(project.video_link);
 
     // Handle click outside to stop playing
     useEffect(() => {
@@ -62,13 +68,19 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                     exit={{ opacity: 0 }}
                                     className="absolute inset-0 z-20"
                                 >
-                                    <iframe
-                                        src={`https://www.youtube.com/embed/${project.cover_image}?autoplay=1&mute=1&controls=1&rel=0&modestbranding=1`}
-                                        title={project.video_title}
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen
-                                        className="w-full h-full border-0"
-                                    />
+                                    {embedUrl ? (
+                                        <iframe
+                                            src={`${embedUrl}?autoplay=1&mute=1&controls=1&rel=0&modestbranding=1`}
+                                            title={project.video_title}
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            className="w-full h-full border-0"
+                                        />
+                                    ) : (
+                                        <div className="w-full h-full bg-black/80 flex items-center justify-center text-white text-sm">
+                                            <span>Video unavailable for embedding</span>
+                                        </div>
+                                    )}
                                     <button
                                         onClick={handleStopClick}
                                         className="absolute top-2 right-2 bg-black/60 hover:bg-black/80 text-white p-1.5 rounded-full backdrop-blur-md transition-colors z-30"
@@ -96,27 +108,37 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                     className="relative w-full h-full cursor-pointer group/thumb"
                                     onClick={handlePlayClick}
                                 >
-                                    <m.div
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        exit={{ opacity: 0 }}
-                                        className="w-full h-full"
-                                    >
-                                        <Image
-                                            src={`https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`}
-                                            alt={project.video_title}
-                                            fill
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    {imageError ? (
+                                        <CategoryPlaceholder 
+                                            category={project.category[0] || 'Video'}
+                                            title={project.video_title}
                                         />
-                                    </m.div>
+                                    ) : (
+                                        <m.div
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            className="w-full h-full"
+                                        >
+                                            <Image
+                                                src={`https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`}
+                                                alt={project.video_title}
+                                                fill
+                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                onError={() => setImageError(true)}
+                                            />
+                                        </m.div>
+                                    )}
 
                                     {/* Play Button Overlay */}
-                                    <div className="absolute inset-0 bg-black/20 group-hover/thumb:bg-black/40 transition-colors duration-300 flex items-center justify-center backdrop-blur-[0px] group-hover/thumb:backdrop-blur-[2px]">
-                                        <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 text-white transform scale-90 group-hover/thumb:scale-110 transition-all duration-300 shadow-xl shadow-black/20">
-                                            <Play className="ml-1 fill-white" size={28} />
+                                    {!imageError && (
+                                        <div className="absolute inset-0 bg-black/20 group-hover/thumb:bg-black/40 transition-colors duration-300 flex items-center justify-center backdrop-blur-[0px] group-hover/thumb:backdrop-blur-[2px]">
+                                            <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 text-white transform scale-90 group-hover/thumb:scale-110 transition-all duration-300 shadow-xl shadow-black/20">
+                                                <Play className="ml-1 fill-white" size={28} />
+                                            </div>
                                         </div>
-                                    </div>
+                                    )}
 
                                     {/* Duration Badge */}
                                     {project.duration && (
@@ -140,7 +162,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                             ))}
                         </div>
 
-                        <Link href={`/project/${project.id}`} className="block group/title">
+                        <Link href={`/project/${project.id}?category=${encodeURIComponent(currentCategory)}&scrollTo=${project.id}`} className="block group/title">
                             <h3 className="text-xl font-bold mb-3 text-white group-hover/title:text-blue-400 transition-colors line-clamp-2 leading-tight">
                                 {project.video_title}
                             </h3>
@@ -153,13 +175,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                         {/* Actions & Metadata */}
                         <div className="mt-auto pt-5 border-t border-white/5 flex items-center justify-between">
                             <div className="flex items-center space-x-3">
-                                <div className="w-8 h-8 rounded-full overflow-hidden border border-white/10 bg-white/5 p-1">
-                                    <Image
-                                        src={project.client_image || "/placeholder.svg"}
-                                        alt={project.client_name}
-                                        width={32}
-                                        height={32}
-                                        className="w-full h-full object-contain rounded-full"
+                                <div className="w-8 h-8 rounded-full overflow-hidden border border-white/10">
+                                    <YouTubeChannelLogo
+                                        videoUrl={project.video_link}
+                                        clientName={project.client_name}
+                                        className="w-8 h-8"
+                                        fallbackImage={project.client_image}
                                     />
                                 </div>
                                 <div className="flex flex-col">
@@ -169,7 +190,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                             </div>
 
                             <div className="flex items-center gap-2">
-                                <Link href={`/project/${project.id}`}>
+                                <Link href={`/project/${project.id}?category=${encodeURIComponent(currentCategory)}&scrollTo=${project.id}`}>
                                     <Button
                                         size="sm"
                                         variant="ghost"

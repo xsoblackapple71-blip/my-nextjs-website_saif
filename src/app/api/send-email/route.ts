@@ -1,5 +1,14 @@
-import { EmailTemplate } from "@/components/email-template";
 import { NextRequest, NextResponse } from "next/server";
+
+// Helper function to escape HTML in Telegram
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
 
 export async function POST(req: NextRequest) {
   const { name, email, message, projectType, timeline } = await req.json();
@@ -39,33 +48,46 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    return NextResponse.json(
-      { error: "Missing Resend API Key" },
-      { status: 500 }
-    );
-  }
+  const telegramToken = "8954985660:AAGLnZ6MvTqhsO6AEbJr9efDLbT3L1q7nnE";
+  const telegramChatId = "8513579969";
+  const telegramUrl = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
 
   try {
-    const { Resend } = await import("resend");
-    const resend = new Resend(apiKey);
+    // Build Telegram message
+    const telegramMessage = `🔔 <b>New Portfolio Inquiry</b>
+👤 <b>Name:</b> ${escapeHtml(name)}
+📧 <b>Email:</b> ${escapeHtml(email)}
+🎬 <b>Project Type:</b> ${projectType || "Not specified"}
+⏰ <b>Timeline:</b> ${timeline || "Not specified"}
+💬 <b>Message:</b>
+${escapeHtml(message)}`;
 
-    const { data, error } = await resend.emails.send({
-      from: "From Portfolio <contact@itsniloy.me>",
-      to: ["contact.niloybhowmick@gmail.com"],
-      subject: `New Message from Portfolio - ${projectType || "General Inquiry"}`,
-      react: EmailTemplate({ name, email, message, projectType, timeline }),
+    const response = await fetch(telegramUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        chat_id: telegramChatId,
+        text: telegramMessage,
+        parse_mode: "HTML",
+      }),
     });
 
-    if (error) {
-      return NextResponse.json({ error }, { status: 500 });
+    const data = await response.json();
+
+    if (!data.ok) {
+      const errorMessage = data.description || "Failed to send message to Telegram";
+      return NextResponse.json(
+        { error: errorMessage },
+        { status: 500 }
+      );
     }
 
-    return NextResponse.json({ success: true, data });
+    return NextResponse.json({ success: true, message: "Message sent successfully" });
   } catch (error) {
     return NextResponse.json(
-      { error: "Failed to send email" },
+      { error: "Failed to send message" },
       { status: 500 }
     );
   }

@@ -2,9 +2,18 @@ import { clientsData } from "@/db/clients";
 import { allVideoProjects } from "@/db/projects";
 import { Client, VideoProject } from "@/types/videos";
 
+const uniqueProjectsById = (projects: VideoProject[]): VideoProject[] => {
+  const seen = new Set<string>();
+  return projects.filter((project) => {
+    if (seen.has(project.id)) return false;
+    seen.add(project.id);
+    return true;
+  });
+};
+
 // Helper function to get all projects sorted by date (latest first)
 export const getAllVideoProjects = (): VideoProject[] => {
-  return [...allVideoProjects].sort(
+  return uniqueProjectsById([...allVideoProjects]).sort(
     (a, b) =>
       new Date(b.publish_date).getTime() - new Date(a.publish_date).getTime()
   );
@@ -22,8 +31,12 @@ export const getVideoProjectsByCategory = (
     return getAllVideoProjects();
   }
 
-  const filteredProjects = allVideoProjects.filter((project) =>
-    project.category.includes(category)
+  const baseProjects = getAllVideoProjects();
+
+  const filteredProjects = baseProjects.filter((project) =>
+    category === "Motion Graphics"
+      ? project.category.includes(category) && project.id.startsWith("motion_")
+      : project.category.includes(category)
   );
 
   return filteredProjects.sort(
@@ -40,9 +53,17 @@ export const getVideoProjectById = (id: string): VideoProject | undefined => {
 // Helper function to get all unique categories
 export const getVideoCategories = (): string[] => {
   const categoriesSet = new Set<string>();
+  const projects = getAllVideoProjects();
 
-  allVideoProjects.forEach((project) => {
-    project.category.forEach((cat) => categoriesSet.add(cat));
+  projects.forEach((project) => {
+    project.category.forEach((cat) => {
+      // Only add Motion Graphics when it belongs to a canonical motion project
+      if (cat === "Motion Graphics") {
+        if (project.id.startsWith("motion_")) categoriesSet.add(cat);
+      } else {
+        categoriesSet.add(cat);
+      }
+    });
   });
 
   return Array.from(categoriesSet);
@@ -54,9 +75,14 @@ export const getVideoCategoriesWithCount = (): {
   count: number;
 }[] => {
   const categoryCountMap = new Map<string, number>();
+  const projects = getAllVideoProjects();
 
-  allVideoProjects.forEach((project) => {
+  projects.forEach((project) => {
     project.category.forEach((cat) => {
+      // Only count Motion Graphics for canonical motion projects
+      if (cat === "Motion Graphics") {
+        if (!project.id.startsWith("motion_")) return;
+      }
       categoryCountMap.set(cat, (categoryCountMap.get(cat) || 0) + 1);
     });
   });
@@ -114,8 +140,8 @@ export const videoProjectsData = {
     p.category.includes("Documentary")
   ),
   Explainer: allVideoProjects.filter((p) => p.category.includes("Explainer")),
-  "Motion Graphics": allVideoProjects.filter((p) =>
-    p.category.includes("Motion Graphics")
+  "Motion Graphics": allVideoProjects.filter(
+    (p) => p.category.includes("Motion Graphics") && p.id.startsWith("motion_")
   ),
   Animation: allVideoProjects.filter((p) => p.category.includes("Animation")),
 };

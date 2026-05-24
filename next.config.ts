@@ -1,6 +1,3 @@
-import { prototype } from "events";
-import { hostname } from "os";
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -8,6 +5,14 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "img.youtube.com",
+      },
+      {
+        protocol: "https",
+        hostname: "ui-avatars.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.youtube.com",
       },
     ],
   },

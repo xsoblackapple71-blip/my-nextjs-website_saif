@@ -5,13 +5,37 @@ import GlassmorphismCard from "@/components/glassmorphism-card";
 import ProjectGrid from "@/components/project-grid";
 import {
   getVideoCategoriesWithCountIncludingAll,
-  getAllVideoProjectsFlattened
+  getAllVideoProjectsFlattened,
+  getFeaturedProjects,
 } from "@/lib/helper";
 
 export default function HomePage() {
   // Fetch data on the server
-  const categories = getVideoCategoriesWithCountIncludingAll();
-  const allProjects = getAllVideoProjectsFlattened(); // We need all projects initially for the grid to filter client-side
+  const allCategories = getVideoCategoriesWithCountIncludingAll();
+  const featuredProjects = getFeaturedProjects(6);
+
+  // Keep only: All, Music Video, Documentary, Tutorial, Event Videos, Corporate Videos, Talking head, Motion Graphics, Promotional Video, Motion reel
+  const categories = allCategories.filter(cat => 
+    ["All", "Music Video", "Documentary", "Tutorial", "Event Videos", "Corporate Videos", "Talking head", "Motion Graphics", "Promotional Video", "Motion reel", "Seminar Video", "Anime fact Reel Video"].includes(cat.category)
+  );
+
+  // Filter projects to only show allowed categories
+  const allProjects = getAllVideoProjectsFlattened().filter(project => 
+    project.category.includes("Music Video") || project.category.includes("Documentary") || project.category.includes("Tutorial") || project.category.includes("Event Videos") || project.category.includes("Corporate Videos") || project.category.includes("Talking head") || project.category.includes("Motion Graphics") || project.category.includes("Promotional Video") || project.category.includes("Motion reel") || project.category.includes("Seminar Video") || project.category.includes("Anime fact Reel Video")
+  );
+  
+  // Update "All" count to match filtered projects and remove duplicate categories
+  const updatedCategories = [
+    { category: "Featured Projects", count: featuredProjects.length },
+    ...categories.map((cat) =>
+      cat.category === "All" ? { ...cat, count: allProjects.length } : cat
+    ),
+  ].reduce((acc, categoryItem) => {
+    if (!acc.some((item) => item.category === categoryItem.category)) {
+      acc.push(categoryItem);
+    }
+    return acc;
+  }, [] as { category: string; count: number }[]);
 
   return (
     <div className="min-h-screen relative overflow-hidden">
@@ -36,10 +60,15 @@ export default function HomePage() {
               animations — I focus on making your content not just polished, but
               <span className="text-blue-400 font-medium"> powerful</span>.
             </p>
+
+            <div className="mx-auto mt-10 inline-flex items-center gap-3 rounded-full border border-cyan-400/20 bg-cyan-500/10 px-5 py-3 text-sm text-cyan-100 shadow-[0_0_40px_rgba(34,211,238,0.18)] backdrop-blur-xl">
+              <span className="inline-flex h-2.5 w-2.5 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.8)] animate-pulse" />
+              Featured Projects are hand-picked and appear first in the category filter.
+            </div>
           </div>
 
           <Suspense fallback={<div className="text-center py-20 text-gray-400">Loading projects...</div>}>
-            <ProjectGrid initialCategories={categories} initialProjects={allProjects} />
+            <ProjectGrid initialCategories={updatedCategories} initialProjects={allProjects} />
           </Suspense>
         </div>
       </section>

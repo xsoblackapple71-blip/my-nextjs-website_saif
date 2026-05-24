@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { m } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -14,6 +14,7 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import GlassmorphismCard from "@/components/glassmorphism-card";
+import YouTubeChannelLogo from "@/components/youtube-channel-logo";
 import {
     ArrowLeft,
     Play,
@@ -31,8 +32,20 @@ interface ProjectDetailsProps {
 }
 
 export default function ProjectDetails({ project }: ProjectDetailsProps) {
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const selectedCategory = searchParams.get("category") || "Featured Projects";
+    const projectScrollId = searchParams.get("scrollTo") || project.id;
     const [showVideo, setShowVideo] = useState(false);
     const embedUrl = getYouTubeEmbedUrl(project.video_link);
+
+        const handleBack = useCallback(() => {
+            // Always navigate back to the projects list with category + scrollTo params
+            // This ensures deterministic behavior and restores the selected category and focused project.
+            router.push(
+                `/?category=${encodeURIComponent(selectedCategory)}&scrollTo=${encodeURIComponent(projectScrollId)}#projects`
+            );
+        }, [router, selectedCategory, projectScrollId]);
 
     return (
         <div className="min-h-screen pt-32 pb-20 px-4">
@@ -45,14 +58,12 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                     className="mb-8"
                 >
                     <Button
-                        asChild
                         variant="outline"
-                        className="pl-4 pr-6 py-2 h-auto text-sm font-medium text-white bg-white/5 border border-white/10 rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_4px_20px_rgba(255,255,255,0.1)] hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-xl group"
+                        onClick={handleBack}
+                        className="flex items-center pl-4 pr-6 py-2 h-auto text-sm font-medium text-white bg-white/5 border border-white/10 rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_4px_20px_rgba(255,255,255,0.1)] hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-xl group"
                     >
-                        <Link href="/">
-                            <ArrowLeft className="mr-2" size={16} />
-                            Back to Projects
-                        </Link>
+                        <ArrowLeft className="mr-2" size={16} />
+                        Back to Projects
                     </Button>
                 </m.div>
 
@@ -255,13 +266,14 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                             </h3>
                             <div className="max-w-3xl mx-auto">
                                 <div className="flex items-center justify-center space-x-4 mb-6">
-                                    <Image
-                                        src={project.client_image || "/placeholder.svg"}
-                                        alt={project.client_name}
-                                        width={64}
-                                        height={64}
-                                        className="rounded-full"
-                                    />
+                                    <div className="w-16 h-16 rounded-full overflow-hidden border border-white/10">
+                                        <YouTubeChannelLogo
+                                            videoUrl={project.video_link}
+                                            clientName={project.client_name}
+                                            className="w-16 h-16"
+                                            fallbackImage={project.client_image}
+                                        />
+                                    </div>
                                     <div className="text-center">
                                         <p className="font-medium text-white text-lg">
                                             {project.client_name}

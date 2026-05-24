@@ -47,7 +47,10 @@ export default function ContactPage() {
       toast("Message sent successfully!");
       form.reset();
     } else {
-      toast(result.error || "Something went wrong.");
+      const errorMessage = typeof result.error === "string" 
+        ? result.error 
+        : "Something went wrong.";
+      toast(errorMessage);
     }
   };
 
@@ -95,10 +98,10 @@ export default function ContactPage() {
                   <div>
                     <p className="text-gray-400 text-sm">Email</p>
                     <a
-                      href="mailto:contact.niloybhowmick@gmail.com"
+                      href="mailto:saifefx@gmail.com"
                       className="text-white hover:text-blue-400 transition-colors"
                     >
-                      contact.niloybhowmick@gmail.com
+                      saifefx@gmail.com
                     </a>
                   </div>
                 </div>
@@ -110,12 +113,12 @@ export default function ContactPage() {
                   <div>
                     <p className="text-gray-400 text-sm">WhatsApp</p>
                     <a
-                      href="https://wa.me/+8801580385556"
+                      href="https://wa.me/8801794017249"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-white hover:text-green-400 transition-colors"
                     >
-                      +88 (015) 803-85556
+                      +88 (017) 940-17249
                     </a>
                   </div>
                 </div>
@@ -298,7 +301,7 @@ export default function ContactPage() {
                 <p className="text-gray-400 text-sm text-center">
                   Prefer to chat directly? Reach out on{" "}
                   <a
-                    href="https://wa.me/+8801580385556"
+                    href="https://wa.me/8801794017249"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-green-400 hover:text-green-300"

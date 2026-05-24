@@ -13,16 +13,14 @@ export default function AnalyticsBeacon() {
       t: document.title,
     };
 
-    console.log("📡 Sending analytics payload:", payload);
-
-    // Use fetch temporarily so we can see errors in console
+    // Send analytics payload silently; do not log in production
     fetch("/api/a", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
-    })
-      .then((res) => console.log("✅ Server response:", res.status))
-      .catch((err) => console.error("❌ Fetch failed:", err));
+    }).catch(() => {
+      /* swallow errors to avoid noisy client logs */
+    });
   }, []);
 
   return null;

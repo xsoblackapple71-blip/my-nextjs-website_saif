@@ -1,4 +1,4 @@
-# Niloy Bhowmick
+# Sakibul Saif
 
 <div align="center">
 
@@ -12,7 +12,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
 
-[**🌐 Live Website**](https://www.itsniloy.me)
+[**🌐 Live Website**](https://www.itsSaif.me)
 
 </div>
 
@@ -52,7 +52,7 @@ This project implements a unique **"Midnight Liquid Glass"** aesthetic, focusing
     Add your environment variables:
     ```env
     RESEND_API_KEY=your_resend_api_key_here
-    NEXT_PUBLIC_SITE_URL=https://www.itsniloy.me
+    NEXT_PUBLIC_SITE_URL=https://www.itssaif.me
     ```
 
 4.  **Run the development server**

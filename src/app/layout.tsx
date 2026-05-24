@@ -17,13 +17,13 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Niloy Bhowmick – Video Editor & Motion Graphics Designer",
-    template: "%s | Niloy Bhowmick",
+    default: "Sakibul Saif – Video Editor & Motion Graphics Designer",
+    template: "%s | Sakibul Saif",
   },
   description:
-    "Turning raw footage into visual stories — with style, precision, and a touch of cinematic magic. Niloy Bhowmick specializes in DaVinci Resolve, Premiere Pro, and After Effects — delivering cinematic edits, motion graphics, and polished storytelling.",
+    "Turning raw footage into visual stories — with style, precision, and a touch of cinematic magic. Sakibul Saif specializes in DaVinci Resolve, Premiere Pro, and After Effects — delivering cinematic edits, motion graphics, and polished storytelling.",
   keywords: [
-    "Niloy Bhowmick",
+    "Sakibul Saif",
     "Video Editor",
     "Motion Graphics Designer",
     "DaVinci Resolve",
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     "Lower Thirds",
     "Audio Sync",
   ],
-  authors: [{ name: "Niloy Bhowmick", url: "https://www.itsniloy.me" }],
-  creator: "Niloy Bhowmick",
-  publisher: "Niloy Bhowmick",
+  authors: [{ name: "Sakibul Saif", url: "https://www.itsSaif.me" }],
+  creator: "Sakibul Saif",
+  publisher: "Sakibul Saif",
   robots: {
     index: true,
     follow: true,
