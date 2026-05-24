@@ -44,6 +44,10 @@ export const metadata: Metadata = {
   authors: [{ name: "Sakibul Saif", url: "https://www.itsSaif.me" }],
   creator: "Sakibul Saif",
   publisher: "Sakibul Saif",
+  icons: {
+    icon: "/Logo.png",
+    apple: "/Logo.png",
+  },
   robots: {
     index: true,
     follow: true,
@@ -97,8 +101,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
+        <link rel="icon" href="/Logo.png" />
+        <link rel="apple-touch-icon" href="/Logo.png" />
         <meta name="theme-color" content="#020817" />
         <script
           type="application/ld+json"

@@ -15,7 +15,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Talking Head", "Explainer"],
     duration: "6:32",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "JSZmQxg3fos",
@@ -32,7 +32,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Talking Head", "Explainer"],
     duration: "10:12",
-    software_used: ["Davinci Resolve", "After Effects"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "ufRtWGd0cXo",
@@ -49,7 +49,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Talking Head", "Explainer"],
     duration: "7:18",
-    software_used: ["Davinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "7OuSRaIPOds",
@@ -66,7 +66,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Talking Head", "Explainer"],
     duration: "8:13",
-    software_used: ["Davinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "esjJzKjx9Fo",
@@ -82,7 +82,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Talking Head", "Explainer"],
     duration: "7:59",
-    software_used: ["Davinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "Qwwgg_qt5ew",
@@ -150,7 +150,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Shorts", "Promo"],
     duration: "1:11",
-    software_used: ["Davinci Resolve", "After Effects"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "wBrkYeMlh1U",
@@ -167,7 +167,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Shorts", "Promo"],
     duration: "1:09",
-    software_used: ["Davinci Resolve", "After Effects"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "A7O_MV3mgsI",
@@ -184,7 +184,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Shorts", "Promo"],
     duration: "1:21",
-    software_used: ["Davinci Resolve", "After Effects"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "kpJyIq-mvtc",
@@ -261,7 +261,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Explainer"],
     duration: "2:43",
-    software_used: ["Davinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "i2JZPZ-a_tc",
@@ -373,7 +373,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Talking Head", "Explainer"],
     duration: "8:22",
-    software_used: ["Davinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "mv_01",
@@ -973,7 +973,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "u9DGTRTYbpU",
@@ -989,7 +989,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "k_8hPmr9KPw",
@@ -1005,7 +1005,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "rBpsvf_dkAY",
@@ -1021,7 +1021,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "HDHszbLUrc4",
@@ -1037,7 +1037,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "T_PuY0QFDSs",
@@ -1053,7 +1053,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "NCZ5ac_zB68",
@@ -1069,7 +1069,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "M1h_F52yLTs",
@@ -1085,7 +1085,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "3fnFyVXMNJw",
@@ -1101,7 +1101,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "4PDdBdnVOlc",
@@ -1117,7 +1117,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "pTyvZOx5JJo",
@@ -1133,7 +1133,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "OvaI1wwER9s",
@@ -1149,7 +1149,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "d5d91FSv8FI",
@@ -1165,7 +1165,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "lQqgAzQf7ow",
@@ -1181,7 +1181,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "misFHNdYGFc",
@@ -1197,7 +1197,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "okDZWx6J4_I",
@@ -1213,7 +1213,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "w7xQoKEboPY",
@@ -1229,7 +1229,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "ssqsPpi1VBw",
@@ -1245,7 +1245,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "nwu_gXWPAeU",
@@ -1261,7 +1261,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "L1Ozw10tKfY",
@@ -1277,7 +1277,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "jgZc-b0oQSg",
@@ -1293,7 +1293,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "inlrhASbyQI",
@@ -1309,7 +1309,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "RPqm5GPCK5U",
@@ -1325,7 +1325,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "QSscbBr2yUc",
@@ -1341,7 +1341,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "I6R5yFzPbug",
@@ -1357,7 +1357,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "bm1aVc6-XMM",
@@ -1373,7 +1373,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "n4lU2uu3YXM",
@@ -1389,7 +1389,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "JXVQ4NZNiCg",
@@ -1405,7 +1405,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "u9DGTRTYbpU",
@@ -1421,7 +1421,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "k_8hPmr9KPw",
@@ -1437,7 +1437,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "rBpsvf_dkAY",
@@ -1453,7 +1453,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "HDHszbLUrc4",
@@ -1469,7 +1469,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "T_PuY0QFDSs",
@@ -1485,7 +1485,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "NCZ5ac_zB68",
@@ -1501,7 +1501,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "vyVu34_LTkU",
@@ -1517,7 +1517,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "GXt_USewmvs",
@@ -1533,7 +1533,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "SWBDRkI1FXo",
@@ -1549,7 +1549,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "NAVS-HXV0-I",
@@ -1565,7 +1565,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "HUrm7e_Bom0",
@@ -1581,7 +1581,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "m6HPtwYC0bU",
@@ -1597,7 +1597,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "nlqYpt7Wbl8",
@@ -1613,7 +1613,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "02BWmps3Ttg",
@@ -1629,7 +1629,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Seminar Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "xpKTBc5iAuA",
@@ -1645,7 +1645,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Seminar Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "7gh4O3tXlBs",
@@ -1661,7 +1661,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Seminar Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "7X_GU1pU42E",
@@ -1677,7 +1677,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Seminar Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "vyVu34_LTkU",
@@ -1693,7 +1693,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "GXt_USewmvs",
@@ -1709,7 +1709,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "SWBDRkI1FXo",
@@ -1725,7 +1725,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "NAVS-HXV0-I",
@@ -1741,7 +1741,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "HUrm7e_Bom0",
@@ -1757,7 +1757,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "m6HPtwYC0bU",
@@ -1773,7 +1773,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "nlqYpt7Wbl8",
@@ -1789,7 +1789,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Anime fact Reel Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "oofT9jztcp0",
@@ -1805,7 +1805,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Promotional Video"],
     duration: "",
-    software_used: ["DaVinci Resolve"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "XrEp4QmFgMw",
@@ -1821,7 +1821,7 @@ export const allVideoProjects: VideoProject[] = [
     project_images: [],
     category: ["Motion reel"],
     duration: "",
-    software_used: ["DaVinci Resolve", "After Effects"],
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
 ];
 
