@@ -37,7 +37,7 @@ const iconMap = [
 
 export default function SkillsPage() {
   return (
-    <div className="min-h-screen py-20 px-4">
+    <div className="min-h-screen flex flex-col justify-center pt-32 pb-12 md:py-24 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Hero Section */}
         <m.div

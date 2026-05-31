@@ -12,16 +12,16 @@ import {
 export default function HomePage() {
   // Fetch data on the server
   const allCategories = getVideoCategoriesWithCountIncludingAll();
-  const featuredProjects = getFeaturedProjects(6);
+  const featuredProjects = getFeaturedProjects(7);
 
-  // Keep only: All, Music Video, Documentary, Tutorial, Event Videos, Corporate Videos, Talking head, Motion Graphics, Promotional Video, Motion reel
+  // Keep only: All, Music Video, Tutorial, Event Videos, Corporate Videos, Talking head, Motion Graphics, Promotional Video, Motion reel
   const categories = allCategories.filter(cat => 
-    ["All", "Music Video", "Documentary", "Tutorial", "Event Videos", "Corporate Videos", "Talking head", "Motion Graphics", "Promotional Video", "Motion reel", "Seminar Video", "Anime fact Reel Video"].includes(cat.category)
+    ["All", "Music Video", "Tutorial", "Event Videos", "Corporate Videos", "Talking head", "Motion Graphics", "Promotional Video", "Motion reel", "Seminar Video", "Anime fact Reel Video"].includes(cat.category)
   );
 
   // Filter projects to only show allowed categories
   const allProjects = getAllVideoProjectsFlattened().filter(project => 
-    project.category.includes("Music Video") || project.category.includes("Documentary") || project.category.includes("Tutorial") || project.category.includes("Event Videos") || project.category.includes("Corporate Videos") || project.category.includes("Talking head") || project.category.includes("Motion Graphics") || project.category.includes("Promotional Video") || project.category.includes("Motion reel") || project.category.includes("Seminar Video") || project.category.includes("Anime fact Reel Video")
+    project.category.includes("Music Video") || project.category.includes("Tutorial") || project.category.includes("Event Videos") || project.category.includes("Corporate Videos") || project.category.includes("Talking head") || project.category.includes("Motion Graphics") || project.category.includes("Promotional Video") || project.category.includes("Motion reel") || project.category.includes("Seminar Video") || project.category.includes("Anime fact Reel Video")
   );
   
   // Update "All" count to match filtered projects and remove duplicate categories

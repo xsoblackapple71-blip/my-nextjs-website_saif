@@ -17,12 +17,15 @@ import {
   Award,
   Clock,
   Zap,
-  Quote
+  Quote,
+  Sparkles,
+  UserCheck,
+  FileText,
 } from "lucide-react";
 import { clientsData } from "@/db/clients";
 
 export default function AboutPage() {
-
+  const showTrustedBy = false; // hide Trusted By section temporarily
 
   return (
     <div className="min-h-screen flex flex-col justify-center pt-32 pb-12 md:py-24 px-4">
@@ -52,12 +55,12 @@ export default function AboutPage() {
               title=""
               description=""
               header={
-                <div className="relative w-full h-full min-h-[28rem] md:min-h-[16rem] rounded-xl overflow-hidden group-hover/bento:scale-[1.02] transition-transform duration-500">
+                <div className="relative w-full h-full min-h-[32rem] md:min-h-[28rem] lg:min-h-[34rem] rounded-xl overflow-hidden group-hover/bento:scale-[1.02] transition-transform duration-500">
                   <Image
                     src="/_niloybhowmick.png"
                     alt="Sakibul Saif"
                     fill
-                    className="object-cover object-top grayscale-[0] hover:grayscale-0 transition-all duration-500"
+                    className="object-cover object-[50%_20%] grayscale-[0] hover:grayscale-0 transition-all duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90" />
 
@@ -138,7 +141,7 @@ export default function AboutPage() {
             />
           </m.div>
 
-          {/* 5. The Philosophy - Quote */}
+          {/* 5. Professional Brief / CV Card */}
           <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -146,18 +149,37 @@ export default function AboutPage() {
             className="md:col-span-2"
           >
             <BentoGridItem
-              title="Philosophy"
-              description="Story is King."
+              title="Interactive Resume / CV Card"
+              description="Professional Brief"
               header={
-                <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-900 to-black border border-white/5 p-6 flex items-center">
-                  <Quote className="text-white/10 absolute top-4 right-4" size={48} />
-                  <p className="text-gray-300 italic text-sm md:text-base leading-relaxed relative z-10">
-                    "I don't just cut footage; I construct feelings. Every frame must earn its place on the timeline, serving the narrative above all else."
-                  </p>
+                <div className="flex flex-1 w-full h-full min-h-[16rem] rounded-xl border border-white/5 bg-gradient-to-br from-neutral-950 via-slate-950 to-neutral-900 shadow-[0_0_50px_rgba(59,130,246,0.1)] p-8">
+                  <div className="flex flex-col justify-between h-full">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-violet-500/10 border border-violet-500/20 text-violet-300 shadow-[0_0_30px_rgba(139,92,246,0.15)] backdrop-blur-xl">
+                        <FileText size={26} />
+                      </div>
+                      <div>
+                        <p className="text-sm uppercase tracking-[0.4em] text-violet-300/90 mb-1">Professional Brief</p>
+                        <h3 className="text-xl font-semibold text-white">Want a deeper breakdown?</h3>
+                      </div>
+                    </div>
+                    <p className="text-gray-300 leading-relaxed text-sm md:text-base mb-8">
+                      Want to look at the complete corporate timeline, technical software stack, and full experience breakdown? Access my full resume here.
+                    </p>
+                    <a
+                      href="/MD_Shakibul_Islam_Video_editor.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-between w-full max-w-xs px-6 py-3 rounded-full bg-white/10 border border-white/10 text-white font-semibold transition-all duration-300 hover:bg-white/20 hover:shadow-[0_0_30px_rgba(139,92,246,0.25)]"
+                    >
+                      <span>View Full CV</span>
+                      <span className="ml-3 inline-flex h-3 w-3 rounded-full bg-violet-400 shadow-[0_0_20px_rgba(139,92,246,0.45)] animate-pulse" />
+                    </a>
+                  </div>
                 </div>
               }
               className="h-full"
-              icon={<Award className="h-4 w-4 text-yellow-500" />}
+              icon={<FileText className="h-4 w-4 text-violet-400" />}
             />
           </m.div>
 
@@ -183,43 +205,144 @@ export default function AboutPage() {
             />
           </m.div>
 
+          {/* 7. Personal Background Grid */}
+          <m.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="md:col-span-2"
+          >
+            <BentoGridItem
+              title="My Story & Passion"
+              description="The Journey Behind the Lens"
+              header={
+                <div className="flex flex-1 w-full h-full min-h-[20rem] rounded-xl border border-white/5 bg-gradient-to-br from-neutral-950 via-slate-950 to-neutral-900 shadow-[0_0_40px_rgba(255,255,255,0.03)] p-8">
+                  <div className="flex flex-col justify-between h-full">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-blue-500/10 border border-blue-500/20 text-blue-300 shadow-[0_0_30px_rgba(59,130,246,0.15)] backdrop-blur-xl">
+                        <Sparkles size={26} />
+                      </div>
+                      <div>
+                        <p className="text-sm uppercase tracking-[0.4em] text-blue-300/90 mb-1">Creative Pulse</p>
+                        <h3 className="text-xl font-semibold text-white">The Journey Behind the Lens</h3>
+                      </div>
+                    </div>
+                    <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+                      My relationship with video editing started as a pure passion project, cutting and crafting music videos. The thrill of syncing visual beats with audio rhythms hooked me completely. Over time, that passion evolved as I shifted my focus towards complex motion graphics and dynamic visual storytelling. Today, every timeline I build is a blend of that raw, music-video-inspired energy and professional, high-end design precision.
+                    </p>
+                  </div>
+                </div>
+              }
+              className="h-full"
+              icon={<Sparkles className="h-4 w-4 text-cyan-400" />}
+            />
+          </m.div>
+
+          <m.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+            className="md:col-span-1"
+          >
+            <BentoGridItem
+              title="Personal Blueprint"
+              description="Quick Facts"
+              header={
+                <div className="flex flex-1 w-full h-full min-h-[20rem] rounded-xl border border-white/5 bg-[#020817] shadow-[0_0_40px_rgba(255,255,255,0.03)] p-6">
+                  <div className="flex flex-col justify-between h-full">
+                    <div className="flex items-center gap-3 mb-5">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 shadow-[0_0_30px_rgba(16,185,129,0.15)] backdrop-blur-xl">
+                        <UserCheck size={26} />
+                      </div>
+                      <div>
+                        <p className="text-sm uppercase tracking-[0.4em] text-emerald-300/90 mb-1">Blueprint & Roots</p>
+                        <h3 className="text-xl font-semibold text-white">Education & Languages</h3>
+                      </div>
+                    </div>
+                    <div className="space-y-4 text-sm text-gray-300">
+                      <div>
+                        <p className="text-gray-400 uppercase tracking-[0.2em] text-[0.68rem] mb-1">Education</p>
+                        <p>BA (Honors) in English at European University of Bangladesh (Running)</p>
+                        <p>HSC completed from Chatmohar Govt. College.</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-400 uppercase tracking-[0.2em] text-[0.68rem] mb-1">Bangla & English</p>
+                        <p>Full Professional Fluency (Speaking + Writing).</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-400 uppercase tracking-[0.2em] text-[0.68rem] mb-1">Hindi</p>
+                        <p>Conversational Fluency (Listening + Speaking only).</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              }
+              className="h-full"
+              icon={<UserCheck className="h-4 w-4 text-emerald-400" />}
+            />
+          </m.div>
+
+          <m.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+            className="md:col-span-3"
+          >
+            <BentoGridItem
+              title="Philosophy"
+              description="Story is King."
+              header={
+                <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-900 to-black border border-white/5 p-6 flex items-center">
+                  <Quote className="text-white/10 absolute top-4 right-4" size={48} />
+                  <p className="text-gray-300 italic text-sm md:text-base leading-relaxed relative z-10">
+                    "I don't just cut footage; I construct feelings. Every frame must earn its place on the timeline, serving the narrative above all else."
+                  </p>
+                </div>
+              }
+              className="h-full"
+              icon={<Award className="h-4 w-4 text-yellow-500" />}
+            />
+          </m.div>
+
         </BentoGrid>
 
         {/* Clients Section */}
-        <m.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-20"
-        >
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Trusted By</h2>
-            <div className="h-1 w-20 bg-blue-500 mx-auto rounded-full" />
-          </div>
-
-          <div
-            className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background py-10"
-            style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}
+        {showTrustedBy && (
+          <m.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-20"
           >
-            <Marquee className="[--duration:20s]">
-              {clientsData.map((client) => (
-                <div key={client.id} className="mx-8 flex flex-col items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-50 hover:opacity-100 cursor-pointer">
-                  <div className="relative w-20 h-20 rounded-2xl overflow-hidden bg-white/5 p-4 flex items-center justify-center shadow-sm hover:shadow-md hover:bg-white/10 transition-all">
-                    <Image
-                      src={client.logo}
-                      alt={client.name}
-                      fill
-                      className="object-contain"
-                    />
+            <div className="text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Trusted By</h2>
+              <div className="h-1 w-20 bg-blue-500 mx-auto rounded-full" />
+            </div>
+
+            <div
+              className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background py-10"
+              style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}
+            >
+              <Marquee className="[--duration:20s]">
+                {clientsData.map((client) => (
+                  <div key={client.id} className="mx-8 flex flex-col items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-50 hover:opacity-100 cursor-pointer">
+                    <div className="relative w-20 h-20 rounded-2xl overflow-hidden bg-white/5 p-4 flex items-center justify-center shadow-sm hover:shadow-md hover:bg-white/10 transition-all">
+                      <Image
+                        src={client.logo}
+                        alt={client.name}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                    <p className="mt-3 text-xs font-medium text-gray-400 group-hover:text-gray-200 transition-colors text-center whitespace-nowrap">
+                      {client.name}
+                    </p>
                   </div>
-                  <p className="mt-3 text-xs font-medium text-gray-400 group-hover:text-gray-200 transition-colors text-center whitespace-nowrap">
-                    {client.name}
-                  </p>
-                </div>
-              ))}
-            </Marquee>
-          </div>
-        </m.div>
+                ))}
+              </Marquee>
+            </div>
+          </m.div>
+        )}
 
         <CTASection
           title="Ready to Work Together?"
