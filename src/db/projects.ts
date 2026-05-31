@@ -1,9 +1,9 @@
-import { VideoProject } from "@/types/videos";
+﻿import { VideoProject } from "@/types/videos";
 
 export const allVideoProjects: VideoProject[] = [
   {
     id: "rVVeLdouViU",
-    video_title: "একজন ফেসবুক ইঞ্জিনিয়ারের রিজিউমি কেমন হয়?",
+    video_title: "How to Build Your Perfect Resume?",
     video_description: `How to Build Your Perfect Resume: Learn from a FAANG Employee Example! Are you ready to take your career to new heights and secure your dream job at a top tech company? Join us on this exclusive journey inside the mind of a FAANG employee as we unveil the secrets of their perfect resume! In this eye-opening video, you'll discover the exact strategies and tips used by the industry's finest to stand out from the crowd and impress recruiters.`,
     tags: ["Resume Tips", "FAANG Career", "Job Preparation", "Career Advice"],
     cover_image: "rVVeLdouViU",
@@ -54,7 +54,7 @@ export const allVideoProjects: VideoProject[] = [
   {
     id: "7OuSRaIPOds",
     video_title:
-      "The Real Reason You Can’t Change (And How to Fix It in 21 Days) | Angela Orr",
+      "The Real Reason You Can't Change (And How to Fix It in 21 Days) | Angela Orr",
     video_description: `You've tried every habit hack, diet, and self-help book—but real change still feels impossible. Why? Because you're trying to change your behavior without changing your identity.`,
     tags: ["Personal Growth", "Habits", "Mindset", "Self-Improvement"],
     cover_image: "7OuSRaIPOds",
@@ -122,7 +122,7 @@ export const allVideoProjects: VideoProject[] = [
     id: "2esQF01ob78",
     video_title: "API & API Endpoints Explained with Simple Examples",
     video_description:
-      "Every time you use an app or website, APIs are working behind the scenes to fetch data. But what exactly is an API, and how do API endpoints work? 🤔 Watch this video to learn with simple examples!",
+      "Every time you use an app or website, APIs are working behind the scenes to fetch data. But what exactly is an API, and how do API endpoints work? Watch this video to learn with simple examples!",
     tags: ["API", "Web Basics", "Backend", "Shorts"],
     cover_image: "2esQF01ob78",
     publish_date: "2025-03-05",
@@ -188,8 +188,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "kpJyIq-mvtc",
-    video_title: "EduNurture360 কি? | Edu Bridge Academy",
-    video_description: "শুরু হয়ে গেছে EduNurture360 এর ২০২৪ সালের ব্যাচ!",
+    video_title: "EduNurture360 Promotion | Edu Bridge Academy",
+    video_description: "Experience EduNurture360 with Edu Bridge Academy: a modern learning platform designed to make education engaging, accessible, and skill-focused.",
     tags: [
       "Education",
       "Institute Promo",
@@ -210,8 +210,8 @@ export const allVideoProjects: VideoProject[] = [
   {
     id: "w72TzfYIsgU",
     video_title:
-      "Bangladesh’s First Flexible Discount for EdTech – Learn Without Limits!",
-    video_description: `Bangladesh's First Flexible Discount for EdTech – Learn Without Limits!`,
+      "Bangladesh's First Flexible Discount for EdTech  -  Learn Without Limits!",
+    video_description: `Bangladesh's First Flexible Discount for EdTech  -  Learn Without Limits!`,
     tags: ["EdTech", "Product Launch", "Education Innovation", "Motion Promo"],
     cover_image: "w72TzfYIsgU",
     publish_date: "2025-01-19",
@@ -237,14 +237,14 @@ export const allVideoProjects: VideoProject[] = [
     client_feedback: "",
     video_link: "https://youtu.be/Y3lWN7oFkpw",
     project_images: [],
-    category: ["Documentary"],
+    category: ["Corporate Videos"],
     duration: "3:51",
     software_used: ["After Effects"],
   },
   {
     id: "MCD9uyZT8Y0",
-    video_title: "প্রোগ্রামিং এর ফান্ডামেন্টাল শেখা কেন জরুরী?",
-    video_description: `ফান্ডামেন্টাল না শিখে কাজ শেখা শুরু করলে কেন সমস্যা হয়—এই ভিডিওতে জানুন।`,
+    video_title: "Programming Basics Made Simple | Stack Learner",
+    video_description: `A beginner-friendly explainer video that breaks programming basics into simple, easy-to-follow lessons for new learners.`,
     tags: [
       "Programming Basics",
       "Education",
@@ -266,7 +266,7 @@ export const allVideoProjects: VideoProject[] = [
   {
     id: "i2JZPZ-a_tc",
     video_title: "Business Email Service",
-    video_description: `একটি ভুল ইমেইল কনফিগারেশনের কারণে নষ্ট হতে পারে আপনার সবচেয়ে valuable ক্লায়েন্ট ও ব্যবসার সুনাম।`,
+    video_description: `A concise explainer of business email services, showing how companies can set up professional email systems for reliable communication and productivity.`,
     tags: ["Business IT", "Email Setup", "IT Services", "Promo Video"],
     cover_image: "i2JZPZ-a_tc",
     publish_date: "2025-07-23",
@@ -304,7 +304,7 @@ export const allVideoProjects: VideoProject[] = [
   {
     id: "TInQK-60l2A",
     video_title: "Web & E-commerce Store Development",
-    video_description: `ওয়েবসাইট হতে হয় ফাস্ট, স্মার্ট, ও ইনটুইটিভ — যাতে বাড়ে ব্যবসার conversion.`,
+    video_description: `A web and e-commerce development walkthrough that highlights modern design, responsive layouts, and conversion-focused site features for online businesses.`,
     tags: ["Web Development", "E-commerce", "Business Website", "Promo"],
     cover_image: "TInQK-60l2A",
     publish_date: "2025-07-24",
@@ -320,7 +320,7 @@ export const allVideoProjects: VideoProject[] = [
   {
     id: "byQmrdAwFK8",
     video_title: "Digital Marketing",
-    video_description: `ভিজিটর আসছে, কিন্তু কাস্টমার হচ্ছে না? সমস্যা প্রোডাক্টে না, মার্কেটিং সিস্টেমে।`,
+    video_description: `A digital marketing explainer showcasing how to create growth-driven campaigns, optimize ads, and attract the right customers for business success.`,
     tags: [
       "Marketing Strategy",
       "Conversion Optimization",
@@ -341,7 +341,7 @@ export const allVideoProjects: VideoProject[] = [
   {
     id: "M9znCGjupcY",
     video_title: "Cyber Security",
-    video_description: `জাস্ট একটা wrong ক্লিক, অথবা unknown  লিংক… আর মুহূর্তেই আপনার বিজনেস হতে পারে সাইবার হ্যাকের এর  শিকার।`,
+    video_description: `A cyber security awareness video that explains protection strategies, common threats, and essential best practices to keep businesses safe online.`,
     tags: [
       "Cyber Security",
       "Protection",
@@ -376,16 +376,16 @@ export const allVideoProjects: VideoProject[] = [
     software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
-    id: "mv_01",
-    video_title: "Pure Pabnaiya। Rifat Official x Adda Noyon। Pabna city Song",
-    video_description: "Music video edited by Sakibul Saif for RIFAT OFFICIAL.",
+    id: "qxt_8dWBTZI",
+    video_title: "Pure Pabnaiya | Rifat Official x Adda Noyon | Pabna city Song",
+    video_description: "Pure Pabnaiya | Rifat official x Adda Noyon | Bangla Rap Song | Pabna city song — project by Rifat Official with high-energy editing.",
     tags: ["Music Video", "Rifat Official", "Bangla Music"],
     cover_image: "qxt_8dWBTZI",
     publish_date: "2025-01-15",
     client_name: "RIFAT OFFICIAL",
     client_image: "/companies/rifat-logo.png",
     client_feedback: "",
-    video_link: "https://youtu.be/qxt_8dWBTZI",
+    video_link: "https://www.youtube.com/watch?v=qxt_8dWBTZI",
     project_images: [],
     category: ["Music Video"],
     duration: "3:22",
@@ -393,7 +393,7 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "mv_02",
-    video_title: "Qurbani Song 2023 | কোরবানি ঈদের গান Qurbani Song",
+    video_title: "Qurbani Song 2023 | Eid-ul-Adha Special Qurbani Song",
     video_description: "Eid-ul-Adha special music video production and post-production.",
     tags: ["Music Video", "Rifat Official", "Eid Special"],
     cover_image: "lxDBCWse8mk",
@@ -409,7 +409,7 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "mv_03",
-    video_title: "The World cup Song 2023 । ICC Men's ODI World Cup 2023",
+    video_title: "The World cup Song 2023  -  ICC Men's ODI World Cup 2023",
     video_description: "Cricket World Cup special theme music video project.",
     tags: ["Music Video", "Rifat Official", "Sports"],
     cover_image: "abMLfpYePAo",
@@ -425,7 +425,7 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "mv_04",
-    video_title: "Toke vebe তোকে ভেবে। Jaane Kyun Bangla version",
+    video_title: "Toke Vebe Jaane Kyun Bangla Version",
     video_description: "Bangla version cover music video with cinematic editing transitions.",
     tags: ["Music Video", "Rifat Official", "Cover Song"],
     cover_image: "tmKpeqPqirQ",
@@ -440,16 +440,16 @@ export const allVideoProjects: VideoProject[] = [
     software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
-    id: "mv_05",
-    video_title: "Kahani Suno 2.0 Bangla Version। কাহানি শুন। Cover Song",
-    video_description: "Sad romantic cover song editing workflow.",
+    id: "ocgk_zOtDfo",
+    video_title: "Kahani Suno 2.0 Bangla Version | কাহানি শুনো | Cover Song | Rifat...",
+    video_description: "Song: Kahani Suno 2.0 (Bangla Version Cover) with lyrics and vocals by SM Sabbir Rahman, music production, and seamless visual pacing.",
     tags: ["Music Video", "Rifat Official", "Cover Song"],
     cover_image: "ocgk_zOtDfo",
     publish_date: "2024-12-10",
     client_name: "RIFAT OFFICIAL",
     client_image: "/companies/rifat-logo.png",
     client_feedback: "",
-    video_link: "https://youtu.be/ocgk_zOtDfo",
+    video_link: "https://www.youtube.com/watch?v=ocgk_zOtDfo",
     project_images: [],
     category: ["Music Video"],
     duration: "2:59",
@@ -457,7 +457,7 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "mv_06",
-    video_title: "Pure Pabnaiya 2.0 ৷ Miraz Afridi ৷ Adda Noyon ৷ 2025",
+    video_title: "Pure Pabnaiya 2.0  |  Miraz Afridi  |  Adda Noyon  |  2025",
     video_description: "Part 2 of the regional hit track video formatting and dynamic pacing.",
     tags: ["Music Video", "Rifat Official", "Sequel"],
     cover_image: "TohW0YbAwBc",
@@ -473,7 +473,7 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "mv_07",
-    video_title: "Shorbonash 2.0 সর্বনাশ 2.0 | Bangla Rap 2024",
+    video_title: "Shorbonash 2.0 | Bangla Rap 2024",
     video_description: "Bangla Rap music video project focusing on rhythmic cuts and color grading.",
     tags: ["Music Video", "Rifat Official", "Rap"],
     cover_image: "jBbOG_OiNUk",
@@ -489,7 +489,7 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "mv_08",
-    video_title: "মেয়ে তুই চিট (Meye tui cheat) Rifat Official",
+    video_title: "Meye Tui Cheat | Rifat Official",
     video_description: "Music video project execution with structural storytelling editing.",
     tags: ["Music Video", "Rifat Official", "Bangla Music"],
     cover_image: "iAwhAdycOG4",
@@ -505,7 +505,7 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "mv_09",
-    video_title: "HSC 2023 New Bangla song । HSC candidate must match !",
+    video_title: "HSC 2023 New Bangla song  -  HSC candidate must match !",
     video_description: "Student lifestyle and thematic musical track video compilation.",
     tags: ["Music Video", "Rifat Official", "Educational"],
     cover_image: "m4tNJlwWUOg",
@@ -521,7 +521,7 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "mv_10",
-    video_title: "তোর হাঁসি (Tor Haashi) Rifat Official। Sohan",
+    video_title: "Tui Haashi (Tor Haashi) | Rifat Official - Sohan",
     video_description: "Romantic melodic track video design and seamless narrative integration.",
     tags: ["Music Video", "Rifat Official", "Romantic"],
     cover_image: "MyOfXWX5aT4",
@@ -537,7 +537,7 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "mv_11",
-    video_title: "তুই যে কোথায় । Tui je kothay । New Music Video 2024",
+    video_title: "Tui Je Kothay - New Music Video 2024",
     video_description: "Modern video design with precise audio-to-video synchronization.",
     tags: ["Music Video", "Rifat Official", "Modern"],
     cover_image: "lixde3VgPrs",
@@ -553,7 +553,7 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "mv_12",
-    video_title: "Haire Thanda । হাইরে ঠান্ডা । Winter Special Track",
+    video_title: "Haire Thanda - Winter Special Track",
     video_description: "Comedy / situational seasonal track dynamic video cuts.",
     tags: ["Music Video", "Rifat Official", "Comedy"],
     cover_image: "K6o9DAqHp9k",
@@ -600,9 +600,9 @@ export const allVideoProjects: VideoProject[] = [
     software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
-    id: "tutorial_01",
-    video_title: "Unified Chat",
-    video_description: "Tutorial on unified chat setup and VPS service integration.",
+    id: "f8PK3mRD3Qc",
+    video_title: "How to use Unified chat Full Tutorial",
+    video_description: "A comprehensive step-by-step screen recording and interface tutorial demonstrating how to manage all business messaging platforms via Unified Chat.",
     tags: ["Tutorial", "VPS", "Alpha net"],
     cover_image: "f8PK3mRD3Qc",
     publish_date: "2025-09-07",
@@ -611,7 +611,7 @@ export const allVideoProjects: VideoProject[] = [
     client_feedback: "",
     video_link: "https://youtu.be/f8PK3mRD3Qc",
     project_images: [],
-    category: ["Tutorial"],
+    category: ["Tutorial Video"],
     software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
@@ -870,18 +870,18 @@ export const allVideoProjects: VideoProject[] = [
     software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
-    id: "talking_01",
-    video_title: "Talking head - Insight Session",
-    video_description: "A polished talking head video focusing on expert insights.",
+    id: "R4Er8qh_EkY",
+    video_title: "Books suggestion Video _ Nazmous Shakib",
+    video_description: "A clean talking-head video edit featuring top book suggestions by Nazmous Shakib, optimized with smooth multi-cam cuts, audio enhancement, and pacing.",
     tags: ["Talking head", "Interview", "Headshot"],
     cover_image: "R4Er8qh_EkY",
     publish_date: "2025-12-01",
     client_name: "Talking head",
     client_image: "/companies/sl-logo.png",
     client_feedback: "",
-    video_link: "https://youtu.be/R4Er8qh_EkY?si=0H7Ex7chN22N_ktO",
+    video_link: "https://youtu.be/R4Er8qh_EkY",
     project_images: [],
-    category: ["Talking head"],
+    category: ["Talking Head"],
     software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
@@ -915,19 +915,35 @@ export const allVideoProjects: VideoProject[] = [
     software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
-    id: "motion_01",
-    video_title: "Moonlight full Video   Qurbani",
-    video_description: "Motion graphics piece for Moonlight Qurbani campaign.",
+    id: "uI1jJ0z97TA",
+    video_title: "Moon light full video _ Qurbani v1",
+    video_description: "Creative motion graphics project for Moonlight Development Society, highlighting a Qurbani donation campaign with smooth animations and layout design.",
     tags: ["Motion Graphics", "Promo"],
     cover_image: "d3fd36SYzko",
     publish_date: "2026-01-10",
     client_name: "Motion Project",
     client_image: "/companies/sl-logo.png",
     client_feedback: "",
-    video_link: "https://youtu.be/d3fd36SYzko?si=VvfWCQ-4D6Nhr2yw",
+    video_link: "https://youtu.be/uI1jJ0z97TA",
     project_images: [],
     category: ["Motion Graphics"],
     software_used: ["After Effects"],
+  },
+  {
+    id: "-VqfDapsFLA",
+    video_title: "Haramayne Real Estate Project",
+    video_description: "A premium commercial real estate video showcasing Haramayan Real Estate properties, smart city architecture investment opportunities, and project highlights.",
+    tags: ["Real Estate", "Commercial", "Architecture"],
+    cover_image: "-VqfDapsFLA",
+    publish_date: "2026-05-24",
+    client_name: "Haramayne Real Estate",
+    client_image: "",
+    client_feedback: "",
+    video_link: "https://youtu.be/-VqfDapsFLA",
+    project_images: [],
+    category: ["Real Estate Video"],
+    duration: "3:00",
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
   {
     id: "motion_02",
@@ -993,8 +1009,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "k_8hPmr9KPw",
-    video_title: "Why the Beard Titan Didn’t Get Eren’s Power! (Attack on Titan Explained)",
-    video_description: "Why the Beard Titan didn’t inherit Eren’s power.",
+    video_title: "Why the Beard Titan Didn't Get Eren's Power! (Attack on Titan Explained)",
+    video_description: "Why the Beard Titan didn't inherit Eren's power.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "k_8hPmr9KPw",
     publish_date: "2026-05-19",
@@ -1009,8 +1025,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "rBpsvf_dkAY",
-    video_title: "Eren’s Voice Actor Pushed Himself TOO FAR!",
-    video_description: "Eren’s voice actor pushed himself during recording.",
+    video_title: "Eren's Voice Actor Pushed Himself TOO FAR!",
+    video_description: "Eren's voice actor pushed himself during recording.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "rBpsvf_dkAY",
     publish_date: "2026-05-19",
@@ -1026,7 +1042,7 @@ export const allVideoProjects: VideoProject[] = [
   {
     id: "HDHszbLUrc4",
     video_title: "Eren Yeager: The True Definition of Freedom!",
-    video_description: "Eren Yeager’s definition of freedom explored.",
+    video_description: "Eren Yeager's definition of freedom explored.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "HDHszbLUrc4",
     publish_date: "2026-05-19",
@@ -1073,8 +1089,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "M1h_F52yLTs",
-    video_title: "The Hidden Truth Behind Ymir’s Death | Attack on Titan Explained",
-    video_description: "The Hidden Truth Behind Ymir’s Death",
+    video_title: "The Hidden Truth Behind Ymir's Death | Attack on Titan Explained",
+    video_description: "The Hidden Truth Behind Ymir's Death",
     tags: ["Reel", "Anime Fact"],
     cover_image: "M1h_F52yLTs",
     publish_date: "2026-05-19",
@@ -1089,8 +1105,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "3fnFyVXMNJw",
-    video_title: "🔍 Did Mikasa Marry Jean After Eren’s Death? The Truth Revealed! 🔔 | Attack on Titan Explained",
-    video_description: "Did Mikasa Marry Jean After Eren’s Death? The Truth Revealed!",
+    video_title: " Did Mikasa Marry Jean After Eren's Death? The Truth Revealed!  | Attack on Titan Explained",
+    video_description: "Did Mikasa Marry Jean After Eren's Death? The Truth Revealed!",
     tags: ["Reel", "Anime Fact"],
     cover_image: "3fnFyVXMNJw",
     publish_date: "2026-05-19",
@@ -1105,8 +1121,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "4PDdBdnVOlc",
-    video_title: "Mikasa’s tears at Eren’s grave had a DEEPER meaning… and it’s heartbreaking.",
-    video_description: "Mikasa’s tears at Eren’s grave had a deeper meaning.",
+    video_title: "Mikasa's tears at Eren's grave had a DEEPER meaning... and it's heartbreaking.",
+    video_description: "Mikasa's tears at Eren's grave had a deeper meaning.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "4PDdBdnVOlc",
     publish_date: "2026-05-19",
@@ -1121,8 +1137,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "pTyvZOx5JJo",
-    video_title: "Eren’s Incomplete Transformation EXPLAINED! (You Missed This!)",
-    video_description: "Eren’s Incomplete Transformation explained.",
+    video_title: "Eren's Incomplete Transformation EXPLAINED! (You Missed This!)",
+    video_description: "Eren's Incomplete Transformation explained.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "pTyvZOx5JJo",
     publish_date: "2026-05-19",
@@ -1137,8 +1153,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "OvaI1wwER9s",
-    video_title: "Eren’s Shocking Betrayal of Zeke Explained! | Attack on Titan Final Season",
-    video_description: "Eren’s shocking betrayal of Zeke explained.",
+    video_title: "Eren's Shocking Betrayal of Zeke Explained! | Attack on Titan Final Season",
+    video_description: "Eren's shocking betrayal of Zeke explained.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "OvaI1wwER9s",
     publish_date: "2026-05-19",
@@ -1153,8 +1169,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "d5d91FSv8FI",
-    video_title: "Eren Wasn’t Supposed to Be the Main Character?!",
-    video_description: "Eren wasn’t supposed to be the main character.",
+    video_title: "Eren Wasn't Supposed to Be the Main Character?!",
+    video_description: "Eren wasn't supposed to be the main character.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "d5d91FSv8FI",
     publish_date: "2026-05-19",
@@ -1185,8 +1201,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "misFHNdYGFc",
-    video_title: "Why Eren Couldn’t Use the Founding Titan Against the Smiling Titan!",
-    video_description: "Why Eren couldn’t use the Founding Titan explained.",
+    video_title: "Why Eren Couldn't Use the Founding Titan Against the Smiling Titan!",
+    video_description: "Why Eren couldn't use the Founding Titan explained.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "misFHNdYGFc",
     publish_date: "2026-05-19",
@@ -1201,7 +1217,7 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "okDZWx6J4_I",
-    video_title: "The Moment Eren Knew EVERYTHING… (You Missed This!)",
+    video_title: "The Moment Eren Knew EVERYTHING... (You Missed This!)",
     video_description: "The moment Eren knew everything explained.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "okDZWx6J4_I",
@@ -1217,8 +1233,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "w7xQoKEboPY",
-    video_title: "The Beast Titan’s Secret Power? BASEBALL.",
-    video_description: "The Beast Titan’s secret power explained.",
+    video_title: "The Beast Titan's Secret Power? BASEBALL.",
+    video_description: "The Beast Titan's secret power explained.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "w7xQoKEboPY",
     publish_date: "2026-05-19",
@@ -1233,8 +1249,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "ssqsPpi1VBw",
-    video_title: "Why the Attack Titan Isn’t Invincible!",
-    video_description: "Why the Attack Titan isn’t invincible.",
+    video_title: "Why the Attack Titan Isn't Invincible!",
+    video_description: "Why the Attack Titan isn't invincible.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "ssqsPpi1VBw",
     publish_date: "2026-05-19",
@@ -1249,7 +1265,7 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "nwu_gXWPAeU",
-    video_title: "The Drunk Guy Who Accidentally Inspired Titan – True Story!",
+    video_title: "The Drunk Guy Who Accidentally Inspired Titan  -  True Story!",
     video_description: "True story behind inspiration for Titans.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "nwu_gXWPAeU",
@@ -1265,8 +1281,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "L1Ozw10tKfY",
-    video_title: "Eren Yeager’s Family Secret Will BLOW Your Mind | Attack on Titan Time Loop Explained!",
-    video_description: "Eren Yeager’s family secret and time loop explained.",
+    video_title: "Eren Yeager's Family Secret Will BLOW Your Mind | Attack on Titan Time Loop Explained!",
+    video_description: "Eren Yeager's family secret and time loop explained.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "L1Ozw10tKfY",
     publish_date: "2026-05-19",
@@ -1281,8 +1297,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "jgZc-b0oQSg",
-    video_title: "Eren’s ENTIRE Story Happened in 4 YEARS?!",
-    video_description: "Eren’s entire story condensed timeline explained.",
+    video_title: "Eren's ENTIRE Story Happened in 4 YEARS?!",
+    video_description: "Eren's entire story condensed timeline explained.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "jgZc-b0oQSg",
     publish_date: "2026-05-19",
@@ -1297,8 +1313,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "inlrhASbyQI",
-    video_title: "The Colossal Titan’s SHOCKING Weakness No One Saw Coming!",
-    video_description: "The Colossal Titan’s surprising weakness explained.",
+    video_title: "The Colossal Titan's SHOCKING Weakness No One Saw Coming!",
+    video_description: "The Colossal Titan's surprising weakness explained.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "inlrhASbyQI",
     publish_date: "2026-05-19",
@@ -1330,7 +1346,7 @@ export const allVideoProjects: VideoProject[] = [
   {
     id: "QSscbBr2yUc",
     video_title: "Armored Titan: The Unstoppable Force with a Hidden Weakness!",
-    video_description: "Armored Titan’s hidden weakness explored.",
+    video_description: "Armored Titan's hidden weakness explored.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "QSscbBr2yUc",
     publish_date: "2026-05-19",
@@ -1345,7 +1361,7 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "I6R5yFzPbug",
-    video_title: "Attack on Titan’s Colossal Titan Secret: The Shocking Truth Behind the 60-Meter Monster!",
+    video_title: "Attack on Titan's Colossal Titan Secret: The Shocking Truth Behind the 60-Meter Monster!",
     video_description: "Colossal Titan secrets and origins explained.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "I6R5yFzPbug",
@@ -1377,7 +1393,7 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "n4lU2uu3YXM",
-    video_title: "Why Marley Waited 100 Years to Attack Paradis | AOT’s Biggest Mistake",
+    video_title: "Why Marley Waited 100 Years to Attack Paradis | AOT's Biggest Mistake",
     video_description: "Why Marley waited 100 years to attack Paradis explained.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "n4lU2uu3YXM",
@@ -1425,8 +1441,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "k_8hPmr9KPw",
-    video_title: "Why the Beard Titan Didn’t Get Eren’s Power! (Attack on Titan Explained)",
-    video_description: "Why the Beard Titan didn’t inherit Eren’s power.",
+    video_title: "Why the Beard Titan Didn't Get Eren's Power! (Attack on Titan Explained)",
+    video_description: "Why the Beard Titan didn't inherit Eren's power.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "k_8hPmr9KPw",
     publish_date: "2026-05-19",
@@ -1441,8 +1457,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "rBpsvf_dkAY",
-    video_title: "Eren’s Voice Actor Pushed Himself TOO FAR!",
-    video_description: "Eren’s voice actor pushed himself during recording.",
+    video_title: "Eren's Voice Actor Pushed Himself TOO FAR!",
+    video_description: "Eren's voice actor pushed himself during recording.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "rBpsvf_dkAY",
     publish_date: "2026-05-19",
@@ -1458,7 +1474,7 @@ export const allVideoProjects: VideoProject[] = [
   {
     id: "HDHszbLUrc4",
     video_title: "Eren Yeager: The True Definition of Freedom!",
-    video_description: "Eren Yeager’s definition of freedom explored.",
+    video_description: "Eren Yeager's definition of freedom explored.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "HDHszbLUrc4",
     publish_date: "2026-05-19",
@@ -1521,7 +1537,7 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "GXt_USewmvs",
-    video_title: "Levi vs Mikasa: The Ultimate Showdown – Who Would Really Win?",
+    video_title: "Levi vs Mikasa: The Ultimate Showdown  -  Who Would Really Win?",
     video_description: "Levi vs Mikasa breakdown and who would win.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "GXt_USewmvs",
@@ -1553,8 +1569,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "NAVS-HXV0-I",
-    video_title: "Jinwoo’s STRONGEST Shadow Isn’t Igris or Beru…",
-    video_description: "Jinwoo’s strongest shadow explained.",
+    video_title: "Jinwoo's STRONGEST Shadow Isn't Igris or Beru...",
+    video_description: "Jinwoo's strongest shadow explained.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "NAVS-HXV0-I",
     publish_date: "2026-05-19",
@@ -1569,8 +1585,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "HUrm7e_Bom0",
-    video_title: "🔥 Mikasa’s Scarf: The Hidden Meaning You MISSED! ❄️",
-    video_description: "Mikasa’s scarf hidden meaning explained.",
+    video_title: " Mikasa's Scarf: The Hidden Meaning You MISSED! ",
+    video_description: "Mikasa's scarf hidden meaning explained.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "HUrm7e_Bom0",
     publish_date: "2026-05-19",
@@ -1697,7 +1713,7 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "GXt_USewmvs",
-    video_title: "Levi vs Mikasa: The Ultimate Showdown – Who Would Really Win?",
+    video_title: "Levi vs Mikasa: The Ultimate Showdown  -  Who Would Really Win?",
     video_description: "Levi vs Mikasa breakdown and who would win.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "GXt_USewmvs",
@@ -1729,8 +1745,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "NAVS-HXV0-I",
-    video_title: "Jinwoo’s STRONGEST Shadow Isn’t Igris or Beru…",
-    video_description: "Jinwoo’s strongest shadow explained.",
+    video_title: "Jinwoo's STRONGEST Shadow Isn't Igris or Beru...",
+    video_description: "Jinwoo's strongest shadow explained.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "NAVS-HXV0-I",
     publish_date: "2026-05-19",
@@ -1745,8 +1761,8 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "HUrm7e_Bom0",
-    video_title: "Mikasa’s Scarf: The Hidden Meaning You MISSED!",
-    video_description: "Mikasa’s scarf hidden meaning explained.",
+    video_title: "Mikasa's Scarf: The Hidden Meaning You MISSED!",
+    video_description: "Mikasa's scarf hidden meaning explained.",
     tags: ["Reel", "Anime Fact"],
     cover_image: "HUrm7e_Bom0",
     publish_date: "2026-05-19",
@@ -1793,15 +1809,15 @@ export const allVideoProjects: VideoProject[] = [
   },
   {
     id: "oofT9jztcp0",
-    video_title: "Promotional Video",
-    video_description: "A promotional video showcase for brand awareness and audience impact.",
+    video_title: "sms.bd promotional video",
+    video_description: "A dynamic and engaging promotional video showcasing Alpha SMS gateway services, features, and bulk messaging benefits for businesses.",
     tags: ["Promotional Video", "YouTube", "Brand", "Promo"],
     cover_image: "oofT9jztcp0",
     publish_date: "2026-05-21",
     client_name: "Promotional Video",
     client_image: "",
     client_feedback: "",
-    video_link: "https://www.youtube.com/watch?v=oofT9jztcp0",
+    video_link: "https://youtu.be/oofT9jztcp0?si=oYfFEYefh7PA_a2J",
     project_images: [],
     category: ["Promotional Video"],
     duration: "",
@@ -1824,6 +1840,20 @@ export const allVideoProjects: VideoProject[] = [
     software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
   },
 ];
+
+export const featuredVideoProjectIds = [
+  "qxt_8dWBTZI",
+  "ocgk_zOtDfo",
+  "oofT9jztcp0",
+  "uI1jJ0z97TA",
+  "R4Er8qh_EkY",
+  "f8PK3mRD3Qc",
+  "-VqfDapsFLA",
+];
+
+export const featuredVideoProjects: VideoProject[] = featuredVideoProjectIds
+  .map((id) => allVideoProjects.find((project) => project.id === id))
+  .filter((project): project is VideoProject => !!project);
 
 
 

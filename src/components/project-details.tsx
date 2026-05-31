@@ -40,10 +40,20 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
     const embedUrl = getYouTubeEmbedUrl(project.video_link);
 
         const handleBack = useCallback(() => {
-            // Always navigate back to the projects list with category + scrollTo params
-            // This ensures deterministic behavior and restores the selected category and focused project.
+            const canGoBack =
+                typeof window !== "undefined" &&
+                window.history.state?.idx !== undefined &&
+                window.history.state.idx > 0;
+
+            if (canGoBack) {
+                router.back();
+                return;
+            }
+
+            // Fallback when browser history cannot restore directly, preserve category and project target.
             router.push(
-                `/?category=${encodeURIComponent(selectedCategory)}&scrollTo=${encodeURIComponent(projectScrollId)}#projects`
+                `/?category=${encodeURIComponent(selectedCategory)}&scrollTo=${encodeURIComponent(projectScrollId)}#project-card-${encodeURIComponent(projectScrollId)}`,
+                { scroll: false }
             );
         }, [router, selectedCategory, projectScrollId]);
 

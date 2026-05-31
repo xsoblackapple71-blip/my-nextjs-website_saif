@@ -1,5 +1,5 @@
 import { clientsData } from "@/db/clients";
-import { allVideoProjects } from "@/db/projects";
+import { allVideoProjects, featuredVideoProjects } from "@/db/projects";
 import { Client, VideoProject } from "@/types/videos";
 
 const uniqueProjectsById = (projects: VideoProject[]): VideoProject[] => {
@@ -105,7 +105,7 @@ export const getVideoCategoriesWithCountIncludingAll = (): {
 };
 
 export function getFeaturedProjects(limit = 6): VideoProject[] {
-  return getAllVideoProjects().slice(0, limit);
+  return featuredVideoProjects.slice(0, limit);
 }
 
 export function getClients(): Client[] {

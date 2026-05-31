@@ -22,15 +22,53 @@ export default function ProjectGrid({ initialCategories, initialProjects }: Proj
   const router = useRouter();
 
   const [selectedCategory, setSelectedCategory] = useState(selectedCategoryFromUrl);
-  const [displayedProjects, setDisplayedProjects] = useState<VideoProject[]>(
-    initialProjects.slice(0, 9)
-  );
-  const [allProjects, setAllProjects] = useState<VideoProject[]>(initialProjects);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [loading, setLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(initialProjects.length > 9);
 
   const ITEMS_PER_PAGE = 9;
+
+  const getFilteredProjects = (category: string) => {
+    if (category === "All") {
+      return initialProjects;
+    }
+    if (category === "Featured Projects") {
+      return getFeaturedProjects(9);
+    }
+    return getVideoProjectsByCategory(category);
+  };
+
+  const getInitialDisplayedProjects = (
+    projects: VideoProject[],
+    targetId: string | null
+  ) => {
+    if (!targetId) {
+      return projects.slice(0, ITEMS_PER_PAGE);
+    }
+
+    const targetIndex = projects.findIndex((project) => project.id === targetId);
+    if (targetIndex === -1) {
+      return projects.slice(0, ITEMS_PER_PAGE);
+    }
+
+    return projects.slice(0, Math.max(targetIndex + 1, ITEMS_PER_PAGE));
+  };
+
+  const [allProjects, setAllProjects] = useState<VideoProject[]>(() =>
+    getFilteredProjects(selectedCategoryFromUrl)
+  );
+
+  const [displayedProjects, setDisplayedProjects] = useState<VideoProject[]>(() =>
+    getInitialDisplayedProjects(
+      getFilteredProjects(selectedCategoryFromUrl),
+      scrollToProjectId
+    )
+  );
+
+  const [currentPage, setCurrentPage] = useState(() =>
+    Math.ceil(displayedProjects.length / ITEMS_PER_PAGE)
+  );
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(
+    displayedProjects.length < allProjects.length
+  );
 
   useEffect(() => {
     setSelectedCategory(selectedCategoryFromUrl);
@@ -38,41 +76,18 @@ export default function ProjectGrid({ initialCategories, initialProjects }: Proj
 
   // Load projects for selected category
   useEffect(() => {
-    let projects;
-    if (selectedCategory === "All") {
-      projects = initialProjects;
-    } else if (selectedCategory === "Featured Projects") {
-      projects = getFeaturedProjects(9);
-    } else {
-      projects = getVideoProjectsByCategory(selectedCategory);
-    }
+    const projects = getFilteredProjects(selectedCategory);
+    const shouldRestoreTarget =
+      scrollToProjectId !== null && selectedCategory === selectedCategoryFromUrl;
+    const nextDisplayedProjects = shouldRestoreTarget
+      ? getInitialDisplayedProjects(projects, scrollToProjectId)
+      : projects.slice(0, ITEMS_PER_PAGE);
 
     setAllProjects(projects);
-    setDisplayedProjects(projects.slice(0, ITEMS_PER_PAGE));
-    setCurrentPage(1);
-    setHasMore(projects.length > ITEMS_PER_PAGE);
-  }, [selectedCategory, initialProjects]);
-
-  useEffect(() => {
-    if (!scrollToProjectId) return;
-
-    const targetIndex = allProjects.findIndex((project) => project.id === scrollToProjectId);
-    if (targetIndex !== -1 && targetIndex >= displayedProjects.length) {
-      const nextCount = targetIndex + 1;
-      setDisplayedProjects(allProjects.slice(0, nextCount));
-      setCurrentPage(Math.ceil(nextCount / ITEMS_PER_PAGE));
-      setHasMore(allProjects.length > nextCount);
-    }
-
-    const timeout = window.setTimeout(() => {
-      const target = document.getElementById(`project-card-${scrollToProjectId}`);
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-    }, 300);
-
-    return () => window.clearTimeout(timeout);
-  }, [scrollToProjectId, displayedProjects, allProjects]);
+    setDisplayedProjects(nextDisplayedProjects);
+    setCurrentPage(Math.ceil(nextDisplayedProjects.length / ITEMS_PER_PAGE));
+    setHasMore(projects.length > nextDisplayedProjects.length);
+  }, [selectedCategory, selectedCategoryFromUrl, scrollToProjectId, initialProjects]);
 
   // Load more projects
   const loadMoreProjects = useCallback(() => {
