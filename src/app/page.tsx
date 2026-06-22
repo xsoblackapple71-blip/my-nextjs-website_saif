@@ -7,35 +7,32 @@ import {
   getVideoCategoriesWithCountIncludingAll,
   getAllVideoProjectsFlattened,
   getFeaturedProjects,
+  VIDEO_CATEGORY_ORDER,
 } from "@/lib/helper";
 
 export default function HomePage() {
   // Fetch data on the server
   const allCategories = getVideoCategoriesWithCountIncludingAll();
-  const featuredProjects = getFeaturedProjects(7);
+  const featuredProjects = getFeaturedProjects(8);
 
-  // Keep only: All, Music Video, Tutorial, Event Videos, Corporate Videos, Talking head, Motion Graphics, Promotional Video, Motion reel
-  const categories = allCategories.filter(cat => 
-    ["All", "Music Video", "Tutorial", "Event Videos", "Corporate Videos", "Talking head", "Motion Graphics", "Promotional Video", "Motion reel", "Seminar Video", "Anime fact Reel Video"].includes(cat.category)
-  );
+  const categories = VIDEO_CATEGORY_ORDER.filter((category) =>
+    category !== "Featured Projects"
+  ).map((category) => {
+    const existing = allCategories.find((item) => item.category === category);
+    return {
+      category,
+      count: existing?.count ?? 0,
+    };
+  });
 
-  // Filter projects to only show allowed categories
-  const allProjects = getAllVideoProjectsFlattened().filter(project => 
-    project.category.includes("Music Video") || project.category.includes("Tutorial") || project.category.includes("Event Videos") || project.category.includes("Corporate Videos") || project.category.includes("Talking head") || project.category.includes("Motion Graphics") || project.category.includes("Promotional Video") || project.category.includes("Motion reel") || project.category.includes("Seminar Video") || project.category.includes("Anime fact Reel Video")
-  );
+  const allProjects = getAllVideoProjectsFlattened();
   
   // Update "All" count to match filtered projects and remove duplicate categories
   const updatedCategories = [
     { category: "Featured Projects", count: featuredProjects.length },
-    ...categories.map((cat) =>
-      cat.category === "All" ? { ...cat, count: allProjects.length } : cat
-    ),
-  ].reduce((acc, categoryItem) => {
-    if (!acc.some((item) => item.category === categoryItem.category)) {
-      acc.push(categoryItem);
-    }
-    return acc;
-  }, [] as { category: string; count: number }[]);
+    { category: "All", count: allProjects.length },
+    ...categories.filter((category) => category.category !== "All" && category.count > 0),
+  ];
 
   return (
     <div className="min-h-screen relative overflow-hidden">

@@ -11,6 +11,66 @@ const uniqueProjectsById = (projects: VideoProject[]): VideoProject[] => {
   });
 };
 
+const CATEGORY_NORMALIZATION: Record<string, string> = {
+  "Promotional Video": "Promotional Videos",
+  "Promotional Videos": "Promotional Videos",
+  "Corporate Videos": "Corporate Videos",
+  "Motion Graphics": "Motion Graphics",
+  "Music Video": "Music Videos",
+  "Music Videos": "Music Videos",
+  "Talking head": "Talking Head",
+  "Talking Head": "Talking Head",
+  "Event Videos": "Event Videos",
+  "Tutorial": "Tutorial",
+  "Logo animation": "Logo Animation",
+  "Logo Animation": "Logo Animation",
+  "Seminar Video": "Seminar Videos",
+  "Seminar Videos": "Seminar Videos",
+  "Motion reel": "Motion Reel",
+  "Motion Reel": "Motion Reel",
+  "Anime fact Reel Video": "Anime Fact Reel Videos",
+  "Anime Fact Reel Videos": "Anime Fact Reel Videos",
+};
+
+export const VIDEO_CATEGORY_ORDER = [
+  "Featured Projects",
+  "All",
+  "Promotional Videos",
+  "Corporate Videos",
+  "Motion Graphics",
+  "Music Videos",
+  "Talking Head",
+  "Event Videos",
+  "Tutorial",
+  "Logo Animation",
+  "Seminar Videos",
+  "Motion Reel",
+  "Anime Fact Reel Videos",
+];
+
+export const normalizeVideoCategory = (category: string): string | null => {
+  return CATEGORY_NORMALIZATION[category.trim()] ?? null;
+};
+
+const getProjectNormalizedCategories = (project: VideoProject): string[] => {
+  const normalizedSet = new Set<string>();
+  project.category.forEach((category) => {
+    const normalized = normalizeVideoCategory(category);
+    if (!normalized) return;
+    if (normalized === "Motion Graphics" && !project.id.startsWith("motion_")) {
+      return;
+    }
+    normalizedSet.add(normalized);
+  });
+  return Array.from(normalizedSet);
+};
+
+export const getVisibleVideoProjects = (): VideoProject[] => {
+  return getAllVideoProjects().filter(
+    (project) => getProjectNormalizedCategories(project).length > 0
+  );
+};
+
 // Helper function to get all projects sorted by date (latest first)
 export const getAllVideoProjects = (): VideoProject[] => {
   return uniqueProjectsById([...allVideoProjects]).sort(
@@ -34,9 +94,7 @@ export const getVideoProjectsByCategory = (
   const baseProjects = getAllVideoProjects();
 
   const filteredProjects = baseProjects.filter((project) =>
-    category === "Motion Graphics"
-      ? project.category.includes(category) && project.id.startsWith("motion_")
-      : project.category.includes(category)
+    getProjectNormalizedCategories(project).includes(category)
   );
 
   return filteredProjects.sort(
@@ -56,14 +114,7 @@ export const getVideoCategories = (): string[] => {
   const projects = getAllVideoProjects();
 
   projects.forEach((project) => {
-    project.category.forEach((cat) => {
-      // Only add Motion Graphics when it belongs to a canonical motion project
-      if (cat === "Motion Graphics") {
-        if (project.id.startsWith("motion_")) categoriesSet.add(cat);
-      } else {
-        categoriesSet.add(cat);
-      }
-    });
+    getProjectNormalizedCategories(project).forEach((cat) => categoriesSet.add(cat));
   });
 
   return Array.from(categoriesSet);
@@ -78,18 +129,17 @@ export const getVideoCategoriesWithCount = (): {
   const projects = getAllVideoProjects();
 
   projects.forEach((project) => {
-    project.category.forEach((cat) => {
-      // Only count Motion Graphics for canonical motion projects
-      if (cat === "Motion Graphics") {
-        if (!project.id.startsWith("motion_")) return;
-      }
+    getProjectNormalizedCategories(project).forEach((cat) => {
       categoryCountMap.set(cat, (categoryCountMap.get(cat) || 0) + 1);
     });
   });
 
-  const sortedCategories = Array.from(categoryCountMap.entries())
-    .map(([category, count]) => ({ category, count }))
-    .sort((a, b) => b.count - a.count);
+  const sortedCategories = VIDEO_CATEGORY_ORDER.filter(
+    (category) => category !== "Featured Projects" && category !== "All"
+  ).map((category) => ({
+    category,
+    count: categoryCountMap.get(category) || 0,
+  })).filter((category) => category.count > 0);
 
   return sortedCategories;
 };
@@ -99,13 +149,19 @@ export const getVideoCategoriesWithCountIncludingAll = (): {
   count: number;
 }[] => {
   const categoryCounts = getVideoCategoriesWithCount();
-  const total = allVideoProjects.length;
+  const allCount = getAllVideoProjects().length;
 
-  return [{ category: "All", count: total }, ...categoryCounts];
+  return [{ category: "All", count: allCount }, ...categoryCounts];
 };
 
 export function getFeaturedProjects(limit = 6): VideoProject[] {
-  return featuredVideoProjects.slice(0, limit);
+  const featured = featuredVideoProjects.slice(0, limit);
+  if (featured.length >= limit) return featured;
+
+  const fallback = getAllVideoProjects().filter(
+    (project) => !featured.some((item) => item.id === project.id)
+  );
+  return [...featured, ...fallback.slice(0, limit - featured.length)];
 }
 
 export function getClients(): Client[] {
