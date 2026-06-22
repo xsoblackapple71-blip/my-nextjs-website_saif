@@ -131,7 +131,7 @@ export default function ProjectGrid({ initialCategories, initialProjects }: Proj
       return initialProjects;
     }
     if (category === "Featured Projects") {
-      return getFeaturedProjects(9);
+      return getFeaturedProjects(8);
     }
     return getVideoProjectsByCategory(category);
   };

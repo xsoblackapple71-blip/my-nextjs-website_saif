@@ -2,6 +2,7 @@
 
 import { m } from "framer-motion";
 import Image from "next/image";
+import HeroImage from "../../../Image 1.png";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import Marquee from "@/components/ui/marquee";
 import CTASection from "@/components/CTASection";
@@ -57,7 +58,7 @@ export default function AboutPage() {
               header={
                 <div className="relative w-full h-full min-h-[32rem] md:min-h-[28rem] lg:min-h-[34rem] rounded-xl overflow-hidden group-hover/bento:scale-[1.02] transition-transform duration-500">
                   <Image
-                    src="/_niloybhowmick.png"
+                    src={HeroImage}
                     alt="Sakibul Saif"
                     fill
                     className="object-cover object-[50%_20%] grayscale-[0] hover:grayscale-0 transition-all duration-500"
