@@ -45,6 +45,7 @@ export default function Hero() {
 
                 {/* Main Title - Split for animation with tighter premium tracking */}
                 <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-white mb-8 leading-[0.9] w-full flex flex-col items-center">
+                    <span className="sr-only">Video Editor Bangladesh, Motion Graphics Designer Bangladesh, Freelance Video Editor, Corporate Video Editor, and Real Estate Video Editor.</span>
                     <m.span
                         initial={{ opacity: 0, y: 60, filter: "blur(10px)" }}
                         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -70,7 +71,7 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 1, 0.5, 1] }}
                     className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed mb-12 sm:mb-16 md:px-0"
                 >
-                    Turning raw footage into visual stories — with style, precision, and a touch of <span className="text-white font-medium drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">cinematic magic</span>.
+                    I’m a freelance video editor and motion graphics designer in Bangladesh creating cinematic edits for YouTube, corporate brands, and real estate content with a strong focus on storytelling and polish.
                 </m.p>
 
                 {/* Buttons */}

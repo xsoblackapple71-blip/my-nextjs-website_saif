@@ -14,20 +14,20 @@ import {
 export const metadata: Metadata = {
   title: "Sakibul Saif | Video Editor & Motion Graphics Designer",
   description:
-    "Explore Sakibul Saif's portfolio of cinematic edits, YouTube video editing, motion graphics, and visual storytelling work.",
+    "Freelance video editor and motion graphics designer in Bangladesh creating cinematic edits, corporate videos, real estate content, and polished YouTube storytelling.",
   alternates: {
     canonical: "https://www.itsSaif.me",
   },
   openGraph: {
     title: "Sakibul Saif | Video Editor & Motion Graphics Designer",
     description:
-      "Explore Sakibul Saif's portfolio of cinematic edits, YouTube video editing, motion graphics, and visual storytelling work.",
+      "Freelance video editor and motion graphics designer in Bangladesh creating cinematic edits, corporate videos, real estate content, and polished YouTube storytelling.",
     url: "https://www.itsSaif.me",
   },
   twitter: {
     title: "Sakibul Saif | Video Editor & Motion Graphics Designer",
     description:
-      "Explore Sakibul Saif's portfolio of cinematic edits, YouTube video editing, motion graphics, and visual storytelling work.",
+      "Freelance video editor and motion graphics designer in Bangladesh creating cinematic edits, corporate videos, real estate content, and polished YouTube storytelling.",
   },
 };
 
@@ -70,13 +70,11 @@ export default function HomePage() {
 
             <h2 className="text-5xl md:text-7xl font-bold mb-8 text-white tracking-tight relative z-10">
               <span className="bg-gradient-to-r from-white via-blue-100 to-gray-400 bg-clip-text text-transparent">
-                My Video Projects
+                Video Projects for Brands, Creators, and Businesses
               </span>
             </h2>
             <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
-              From smooth transitions to precise audio syncing and dynamic
-              animations — I focus on making your content not just polished, but
-              <span className="text-blue-400 font-medium"> powerful</span>.
+              From polished corporate videos and real estate edits to YouTube storytelling and motion graphics, I focus on making your content not just polished, but powerful.
             </p>
 
             <div className="mx-auto mt-10 inline-flex items-center gap-3 rounded-full border border-cyan-400/20 bg-cyan-500/10 px-5 py-3 text-sm text-cyan-100 shadow-[0_0_40px_rgba(34,211,238,0.18)] backdrop-blur-xl">
@@ -97,11 +95,10 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-              What I Can Do <span className="text-blue-500">for You</span>
+              Freelance Video Editing <span className="text-blue-500">& Motion Graphics</span>
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              If you're looking for someone who blends creativity with technical
-              skill, communicates clearly, and truly cares about results.
+              If you need a freelance video editor in Bangladesh for YouTube, corporate content, or real estate projects, I combine creative storytelling with technical precision to deliver polished results.
             </p>
           </div>
 
