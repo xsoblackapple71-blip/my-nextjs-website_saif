@@ -16,7 +16,7 @@ const inter = Inter({ subsets: ["latin"] });
 // const nunito = Nunito({ subsets: ["latin"] });q
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.itsSaif.me"),
+  metadataBase: new URL("https://saifstudio.vercel.app"),
   title: {
     default: "Sakibul Saif | Video Editor & Motion Graphics Designer",
     template: "%s | Sakibul Saif",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     "Lower Thirds",
     "Audio Sync",
   ],
-  authors: [{ name: "Sakibul Saif", url: "https://www.itsSaif.me" }],
+  authors: [{ name: "Sakibul Saif", url: "https://saifstudio.vercel.app" }],
   creator: "Sakibul Saif",
   publisher: "Sakibul Saif",
   applicationName: "Sakibul Saif Portfolio",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.itsSaif.me",
+    url: "https://saifstudio.vercel.app",
     title: "Sakibul Saif | Video Editor & Motion Graphics Designer",
     description:
       "Professional video editor and motion graphics designer creating cinematic edits, YouTube content, motion graphics, and polished storytelling for brands and creators.",
@@ -93,7 +93,7 @@ export const metadata: Metadata = {
     google: "your-google-verification-code",
   },
   alternates: {
-    canonical: "https://www.itsSaif.me",
+    canonical: "https://saifstudio.vercel.app",
   },
 };
 
@@ -115,18 +115,20 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Sakibul Saif",
-              url: "https://www.itsSaif.me",
-              image: "/Logo.png",
-              sameAs: ["https://www.itsSaif.me"],
               jobTitle: "Video Editor & Motion Graphics Designer",
+              description:
+                "Professional Video Editor with 3+ years of experience in corporate videos, real estate videos, talking head videos, YouTube content, and motion graphics.",
+              url: "https://saifstudio.vercel.app",
+              image: "/Logo.png",
+              sameAs: ["https://saifstudio.vercel.app"],
               knowsAbout: [
-                "Video Editing",
+                "Corporate Videos",
+                "Real Estate Videos",
+                "Talking Head Videos",
+                "YouTube Content",
                 "Motion Graphics",
-                "DaVinci Resolve",
-                "Adobe Premiere Pro",
-                "Adobe After Effects",
+                "Video Editing",
                 "Color Grading",
-                "Audio Syncing",
               ],
               worksFor: {
                 "@type": "Organization",
