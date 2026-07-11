@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Get in touch with Sakibul Saif for professional video editing, motion graphics, and content creation services.",
   alternates: {
-    canonical: "https://www.itsSaif.me/contact",
+    canonical: "https://saifstudio.vercel.app/contact",
   },
   openGraph: {
     title: "Contact Sakibul Saif",
     description:
       "Get in touch with Sakibul Saif for professional video editing, motion graphics, and content creation services.",
-    url: "https://www.itsSaif.me/contact",
+    url: "https://saifstudio.vercel.app/contact",
   },
   twitter: {
     title: "Contact Sakibul Saif",

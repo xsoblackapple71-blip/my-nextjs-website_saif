@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Learn more about Sakibul Saif, a video editor and motion graphics designer specializing in cinematic storytelling and polished visual content.",
   alternates: {
-    canonical: "https://www.itsSaif.me/about",
+    canonical: "https://saifstudio.vercel.app/about",
   },
   openGraph: {
     title: "About Sakibul Saif",
     description:
       "Learn more about Sakibul Saif, a video editor and motion graphics designer specializing in cinematic storytelling and polished visual content.",
-    url: "https://www.itsSaif.me/about",
+    url: "https://saifstudio.vercel.app/about",
   },
   twitter: {
     title: "About Sakibul Saif",

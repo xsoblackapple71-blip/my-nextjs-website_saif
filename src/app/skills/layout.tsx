@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Explore Sakibul Saif's skills in video editing, motion graphics, color grading, audio enhancement, and professional post-production.",
   alternates: {
-    canonical: "https://www.itsSaif.me/skills",
+    canonical: "https://saifstudio.vercel.app/skills",
   },
   openGraph: {
     title: "Skills & Expertise",
     description:
       "Explore Sakibul Saif's skills in video editing, motion graphics, color grading, audio enhancement, and professional post-production.",
-    url: "https://www.itsSaif.me/skills",
+    url: "https://saifstudio.vercel.app/skills",
   },
   twitter: {
     title: "Skills & Expertise",

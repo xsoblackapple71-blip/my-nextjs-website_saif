@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { allVideoProjects } from "@/db/projects";
 
-const siteUrl = "https://www.itsSaif.me";
+const siteUrl = "https://saifstudio.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
