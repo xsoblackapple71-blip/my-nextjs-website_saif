@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import MouseMoveEffect from "@/components/mouse-move-effect";
 import Hero from "@/components/hero";
@@ -9,6 +10,26 @@ import {
   getFeaturedProjects,
   VIDEO_CATEGORY_ORDER,
 } from "@/lib/helper";
+
+export const metadata: Metadata = {
+  title: "Sakibul Saif | Video Editor & Motion Graphics Designer",
+  description:
+    "Explore Sakibul Saif's portfolio of cinematic edits, YouTube video editing, motion graphics, and visual storytelling work.",
+  alternates: {
+    canonical: "https://www.itsSaif.me",
+  },
+  openGraph: {
+    title: "Sakibul Saif | Video Editor & Motion Graphics Designer",
+    description:
+      "Explore Sakibul Saif's portfolio of cinematic edits, YouTube video editing, motion graphics, and visual storytelling work.",
+    url: "https://www.itsSaif.me",
+  },
+  twitter: {
+    title: "Sakibul Saif | Video Editor & Motion Graphics Designer",
+    description:
+      "Explore Sakibul Saif's portfolio of cinematic edits, YouTube video editing, motion graphics, and visual storytelling work.",
+  },
+};
 
 export default function HomePage() {
   // Fetch data on the server

@@ -26,11 +26,15 @@ export async function generateMetadata({
   }
 
   return {
-    title: project.video_title,
+    title: `${project.video_title} | Sakibul Saif`,
     description: project.video_description,
+    alternates: {
+      canonical: `https://www.itsSaif.me/project/${project.id}`,
+    },
     openGraph: {
-      title: project.video_title,
+      title: `${project.video_title} | Sakibul Saif`,
       description: project.video_description,
+      url: `https://www.itsSaif.me/project/${project.id}`,
       images: [
         {
           url: `https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`,
@@ -39,6 +43,11 @@ export async function generateMetadata({
           alt: project.video_title,
         },
       ],
+    },
+    twitter: {
+      title: `${project.video_title} | Sakibul Saif`,
+      description: project.video_description,
+      images: [`https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`],
     },
   };
 }

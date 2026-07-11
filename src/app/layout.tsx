@@ -16,12 +16,13 @@ const inter = Inter({ subsets: ["latin"] });
 // const nunito = Nunito({ subsets: ["latin"] });q
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.itsSaif.me"),
   title: {
-    default: "Sakibul Saif – Video Editor & Motion Graphics Designer",
+    default: "Sakibul Saif | Video Editor & Motion Graphics Designer",
     template: "%s | Sakibul Saif",
   },
   description:
-    "Turning raw footage into visual stories — with style, precision, and a touch of cinematic magic. Sakibul Saif specializes in DaVinci Resolve, Premiere Pro, and After Effects — delivering cinematic edits, motion graphics, and polished storytelling.",
+    "Professional video editor and motion graphics designer creating cinematic edits, YouTube content, motion graphics, and polished visual storytelling for brands and creators.",
   keywords: [
     "Sakibul Saif",
     "Video Editor",
@@ -44,6 +45,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Sakibul Saif", url: "https://www.itsSaif.me" }],
   creator: "Sakibul Saif",
   publisher: "Sakibul Saif",
+  applicationName: "Sakibul Saif Portfolio",
+  category: "Video Editing",
+  classification: "Portfolio",
   icons: {
     icon: "/Logo.png",
     apple: "/Logo.png",
@@ -63,25 +67,26 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://www.itsSaif.me",
-    title: "Sakibul Saif – Video Editor & Motion Graphics Designer",
+    title: "Sakibul Saif | Video Editor & Motion Graphics Designer",
     description:
-      "Passionate Video Editor and Motion Graphics Designer delivering clean, cinematic edits and dynamic visual storytelling using DaVinci Resolve, Premiere Pro, and After Effects.",
+      "Professional video editor and motion graphics designer creating cinematic edits, YouTube content, motion graphics, and polished storytelling for brands and creators.",
     siteName: "Sakibul Saif Portfolio",
     images: [
       {
         url: "/Logo.png",
         width: 1200,
         height: 630,
-        alt: "Sakibul Saif - Video Editor",
+        alt: "Sakibul Saif portfolio preview",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sakibul Saif – Video Editor & Motion Graphics Designer",
+    title: "Sakibul Saif | Video Editor & Motion Graphics Designer",
     description:
-      "Crafting cinematic edits, motion graphics, and powerful stories. Let's make your content stand out.",
+      "Cinematic edits, motion graphics, and polished storytelling for YouTube, brands, and creators.",
     creator: "@sakibulsaif",
+    site: "@sakibulsaif",
     images: ["/Logo.png"],
   },
   verification: {
@@ -90,7 +95,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.itsSaif.me",
   },
-  category: "Video Editing",
 };
 
 export default function RootLayout({
