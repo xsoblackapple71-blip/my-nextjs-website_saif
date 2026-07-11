@@ -23,6 +23,9 @@ export default function ProjectCard({ project, currentCategory = "All" }: Projec
     const [imageError, setImageError] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
     const embedUrl = getYouTubeEmbedUrl(project.video_link);
+    const previewPlayerSrc = embedUrl
+        ? `${embedUrl}?autoplay=1&mute=0&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&playsinline=1`
+        : null;
 
     // Handle click outside to stop playing
     useEffect(() => {
@@ -68,14 +71,18 @@ export default function ProjectCard({ project, currentCategory = "All" }: Projec
                                     exit={{ opacity: 0 }}
                                     className="absolute inset-0 z-20"
                                 >
-                                    {embedUrl ? (
-                                        <iframe
-                                            src={`${embedUrl}?autoplay=1&mute=1&controls=1&rel=0&modestbranding=1`}
-                                            title={project.video_title}
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                            className="w-full h-full border-0"
-                                        />
+                                    {previewPlayerSrc ? (
+                                        <div className="absolute inset-0 overflow-hidden">
+                                            <div className="absolute inset-0 scale-[1.14] -translate-y-[4%]">
+                                                <iframe
+                                                    src={previewPlayerSrc}
+                                                    title={project.video_title}
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowFullScreen
+                                                    className="w-full h-[110%] border-0"
+                                                />
+                                            </div>
+                                        </div>
                                     ) : (
                                         <div className="w-full h-full bg-black/80 flex items-center justify-center text-white text-sm">
                                             <span>Video unavailable for embedding</span>

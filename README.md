@@ -36,8 +36,8 @@ This project implements a unique **"Midnight Liquid Glass"** aesthetic, focusing
 
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/maruf-pfc/niloy-bhowmick.git
-    cd niloy-bhowmick
+    git clone https://github.com/your-username/sakibul-saif.git
+    cd sakibul-saif
     ```
 
 2.  **Install dependencies**
@@ -52,7 +52,7 @@ This project implements a unique **"Midnight Liquid Glass"** aesthetic, focusing
     Add your environment variables:
     ```env
     RESEND_API_KEY=your_resend_api_key_here
-    NEXT_PUBLIC_SITE_URL=https://www.itssaif.me
+    NEXT_PUBLIC_SITE_URL=https://www.itsSaif.me
     ```
 
 4.  **Run the development server**
@@ -79,7 +79,7 @@ pnpm start
 3.  Add environment variables in Vercel dashboard:
     ```env
     RESEND_API_KEY=your_production_resend_key
-    NEXT_PUBLIC_SITE_URL=https://www.itsniloy.me
+    NEXT_PUBLIC_SITE_URL=https://www.itsSaif.me
     ```
 4.  Deploy automatically.
 
@@ -91,7 +91,7 @@ pnpm start
 ## 📂 Project Structure
 
 ```plaintext
-📦niloy-bhowmick
+📦sakibul-saif
  ┣ 📂public
  ┃ ┣ 📂companies
  ┃ ┣ 📂project-images
@@ -99,7 +99,7 @@ pnpm start
  ┃ ┣ 📜demo.png
  ┃ ┣ 📜logo-transparent.png
  ┃ ┣ 📜logo-white.png
- ┃ ┣ 📜niloybhowmick.png
+ ┃ ┣ 📜Logo.png
  ┃ ┗ 📜not-found.jpg
  ┣ 📂src
  ┃ ┣ 📂app
@@ -198,6 +198,6 @@ export const videoProjectsData = {
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=maruf-pfc/niloy-bhowmick&type=Date)](https://star-history.com/#maruf-pfc/niloy-bhowmick&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=your-username/sakibul-saif&type=Date)](https://github.com/your-username/sakibul-saif)
 
 </div>

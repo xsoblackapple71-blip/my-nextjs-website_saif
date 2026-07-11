@@ -26,7 +26,7 @@ import {
 import { clientsData } from "@/db/clients";
 
 export default function AboutPage() {
-  const showTrustedBy = false; // hide Trusted By section temporarily
+  const SHOW_TRUSTED_BY = false;
 
   return (
     <div className="min-h-screen flex flex-col justify-center pt-32 pb-12 md:py-24 px-4">
@@ -308,7 +308,7 @@ export default function AboutPage() {
         </BentoGrid>
 
         {/* Clients Section */}
-        {showTrustedBy && (
+        {SHOW_TRUSTED_BY && (
           <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
