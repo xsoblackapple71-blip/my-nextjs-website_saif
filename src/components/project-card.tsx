@@ -129,10 +129,11 @@ export default function ProjectCard({ project, currentCategory = "All" }: Projec
                                         >
                                             <Image
                                                 src={`https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`}
-                                                alt={project.video_title}
+                                                alt={`${project.video_title} thumbnail for ${project.category[0] || "video project"}`}
                                                 fill
                                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                loading="lazy"
                                                 onError={() => setImageError(true)}
                                             />
                                         </m.div>

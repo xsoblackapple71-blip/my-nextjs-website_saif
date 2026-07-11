@@ -9,10 +9,11 @@ export default function NotFound() {
     <main className="min-h-screen flex flex-col items-center justify-center px-4 text-center">
       <div className="max-w-md w-full">
         <Image
-          src="/not-found.jpg" // 🖼️ Replace with your image path
-          alt="404 Not Found"
+          src="/not-found.jpg"
+          alt="Illustration for a missing page on Sakibul Saif's portfolio website"
           width={500}
           height={300}
+          sizes="(max-width: 768px) 100vw, 500px"
           className="w-full h-auto rounded-2xl object-contain mb-6"
           priority
         />

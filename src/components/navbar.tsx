@@ -90,6 +90,10 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <button
+              type="button"
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-300 hover:text-white p-2 rounded-lg hover:bg-white/5 transition-colors"
             >
@@ -106,6 +110,7 @@ export default function Navbar() {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
+              id="mobile-navigation"
               className="w-full overflow-hidden md:hidden"
             >
               <div className="pt-4 pb-2 space-y-2 flex flex-col">

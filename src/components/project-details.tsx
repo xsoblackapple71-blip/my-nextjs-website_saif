@@ -31,6 +31,23 @@ interface ProjectDetailsProps {
     project: VideoProject;
 }
 
+function getProjectDisplayDescription(project: VideoProject) {
+    const cleanDescription = project.video_description
+        .replace(/\s+/g, " ")
+        .trim();
+    const firstSentence = cleanDescription.split(".")[0]?.trim() || cleanDescription;
+    const categoryText = project.category?.join(", ").toLowerCase() || "video editing";
+    const clientText = project.client_name ? ` for ${project.client_name}` : "";
+
+    return `${firstSentence}. This ${categoryText} project combines clean pacing, thoughtful motion graphics, and polished storytelling${clientText}.`;
+}
+
+function getProjectAltText(project: VideoProject, variant: "preview" | "gallery" = "preview") {
+    return variant === "gallery"
+        ? `${project.video_title} project gallery image by Sakibul Saif`
+        : `${project.video_title} preview image by Sakibul Saif`;
+}
+
 export default function ProjectDetails({ project }: ProjectDetailsProps) {
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -103,8 +120,9 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                                                 ? `https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`
                                                 : "/placeholder.svg"
                                         }
-                                        alt={project.video_title}
+                                        alt={getProjectAltText(project, "preview")}
                                         fill
+                                        sizes="(max-width: 768px) 100vw, 75vw"
                                         className="object-cover"
                                     />
                                     <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
@@ -144,7 +162,10 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                                 {project.video_title}
                             </h1>
                             <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-                                {project.video_description}
+                                {getProjectDisplayDescription(project)}
+                            </p>
+                            <p className="mt-4 text-sm text-blue-300">
+                                Looking for similar work? Visit my <a href="/_services" className="underline decoration-blue-400/50 underline-offset-4 hover:text-white">services</a> or <a href="/contact" className="underline decoration-blue-400/50 underline-offset-4 hover:text-white">get in touch</a>.
                             </p>
                         </div>
 
@@ -178,7 +199,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                             {project.software_used && (
                                 <div>
                                     <h3 className="text-lg font-semibold mb-3 text-white">
-                                        Software Used
+                                        Tools & Software
                                     </h3>
                                     <div className="flex flex-wrap gap-2">
                                         {project.software_used.map((software) => (
@@ -197,7 +218,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
 
                         <div className="mb-8">
                             <h3 className="text-lg font-semibold mb-3 text-white">
-                                Categories
+                                Project Categories
                             </h3>
                             <div className="flex flex-wrap gap-2">
                                 {project.category.map((category) => (
@@ -247,8 +268,10 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                                                 <div className="relative aspect-video rounded-lg overflow-hidden">
                                                     <Image
                                                         src={image || "/placeholder.svg"}
-                                                        alt={`Project image ${index + 1}`}
+                                                        alt={getProjectAltText(project, "gallery")}
                                                         fill
+                                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                                        loading="lazy"
                                                         className="object-cover hover:scale-105 transition-transform duration-300"
                                                     />
                                                 </div>

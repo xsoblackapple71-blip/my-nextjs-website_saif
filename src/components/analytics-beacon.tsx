@@ -13,11 +13,18 @@ export default function AnalyticsBeacon() {
       t: document.title,
     };
 
-    // Send analytics payload silently; do not log in production
-    fetch("/api/a", {
+    const body = JSON.stringify(payload);
+    const url = "/api/a";
+
+    if (typeof navigator !== "undefined" && navigator.sendBeacon) {
+      navigator.sendBeacon(url, body);
+      return;
+    }
+
+    fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+      body,
     }).catch(() => {
       /* swallow errors to avoid noisy client logs */
     });

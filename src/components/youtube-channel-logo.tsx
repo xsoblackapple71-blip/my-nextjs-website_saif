@@ -41,7 +41,7 @@ export default function YouTubeChannelLogo({
   return (
     <div className={`${className} rounded-2xl overflow-hidden bg-white/5 p-1 flex items-center justify-center`}>
       <div className={`relative w-full h-full ${isLoading ? 'animate-pulse' : ''}`}>
-        <Image src={logoUrl} alt={clientName || 'Channel Logo'} fill className="object-contain" onError={() => {}} priority={false} />
+        <Image src={logoUrl} alt={clientName ? `${clientName} YouTube channel logo` : 'YouTube channel logo'} fill sizes="48px" loading="lazy" className="object-contain" onError={() => {}} priority={false} />
       </div>
     </div>
   );

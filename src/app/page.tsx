@@ -16,13 +16,13 @@ export const metadata: Metadata = {
   description:
     "Freelance video editor and motion graphics designer in Bangladesh creating cinematic edits, corporate videos, real estate content, and polished YouTube storytelling.",
   alternates: {
-    canonical: "https://www.itsSaif.me",
+    canonical: "https://saifstudio.vercel.app",
   },
   openGraph: {
     title: "Sakibul Saif | Video Editor & Motion Graphics Designer",
     description:
       "Freelance video editor and motion graphics designer in Bangladesh creating cinematic edits, corporate videos, real estate content, and polished YouTube storytelling.",
-    url: "https://www.itsSaif.me",
+    url: "https://saifstudio.vercel.app",
   },
   twitter: {
     title: "Sakibul Saif | Video Editor & Motion Graphics Designer",

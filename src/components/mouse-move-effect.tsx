@@ -18,11 +18,14 @@ export default function MouseMoveEffect() {
   const layer2Ref = useRef<HTMLDivElement>(null);
 
   const [isMobile, setIsMobile] = useState(true);
+  const [shouldAnimate, setShouldAnimate] = useState(true);
 
   useEffect(() => {
     // 1. Check if mobile/touch device
     const checkMobile = () => {
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const isTouch = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+      setShouldAnimate(!prefersReducedMotion);
       setIsMobile(isTouch);
 
       if (typeof window !== 'undefined') {
@@ -46,7 +49,7 @@ export default function MouseMoveEffect() {
       };
     };
 
-    if (!isMobile) {
+    if (!isMobile && shouldAnimate) {
       window.addEventListener("mousemove", handleMouseMove);
     }
 
@@ -75,7 +78,7 @@ export default function MouseMoveEffect() {
       requestRef.current = requestAnimationFrame(animate);
     };
 
-    if (!isMobile) {
+    if (!isMobile && shouldAnimate) {
       requestRef.current = requestAnimationFrame(animate);
     }
 
@@ -84,10 +87,10 @@ export default function MouseMoveEffect() {
       window.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(requestRef.current);
     };
-  }, [isMobile]);
+  }, [isMobile, shouldAnimate]);
 
-  // If mobile, render static gradient or nothing to save GPU
-  if (isMobile) {
+  // If mobile or reduced-motion is preferred, render a static gradient to save GPU
+  if (isMobile || !shouldAnimate) {
     return (
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-20%] left-[-20%] w-[80%] h-[80%] rounded-full bg-blue-900/10 blur-[80px] animate-pulse-slow" />

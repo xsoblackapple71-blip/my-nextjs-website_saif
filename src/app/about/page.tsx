@@ -59,8 +59,10 @@ export default function AboutPage() {
                 <div className="relative w-full h-full min-h-[32rem] md:min-h-[28rem] lg:min-h-[34rem] rounded-xl overflow-hidden group-hover/bento:scale-[1.02] transition-transform duration-500">
                   <Image
                     src={HeroImage}
-                    alt="Sakibul Saif"
+                    alt="Portrait of Sakibul Saif, a professional video editor and motion graphics designer"
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 60vw"
+                    priority
                     className="object-cover object-[50%_20%] grayscale-[0] hover:grayscale-0 transition-all duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90" />

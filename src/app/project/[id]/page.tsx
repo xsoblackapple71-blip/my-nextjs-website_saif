@@ -2,6 +2,27 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { allVideoProjects } from "@/db/projects";
 import ProjectDetails from "@/components/project-details";
+import type { VideoProject } from "@/types/videos";
+
+const siteUrl = "https://saifstudio.vercel.app";
+
+function getProjectSeoTitle(project: VideoProject) {
+  const categoryLabel = project.category?.[0] || "Video Project";
+  return `${project.video_title} | ${categoryLabel} by Sakibul Saif`;
+}
+
+function getProjectSeoDescription(project: VideoProject) {
+  const cleanDescription = project.video_description
+    .replace(/\s+/g, " ")
+    .trim();
+  const shortDescription = cleanDescription.length > 155
+    ? `${cleanDescription.slice(0, 152)}...`
+    : cleanDescription;
+  const categoryText = project.category?.join(", ").toLowerCase() || "video editing";
+  const clientText = project.client_name ? ` for ${project.client_name}` : "";
+
+  return `${shortDescription} This ${categoryText} project by Sakibul Saif delivers polished storytelling, motion graphics, and professional editing${clientText}.`;
+}
 
 // Generate unique static params for all projects
 export async function generateStaticParams() {
@@ -25,28 +46,31 @@ export async function generateMetadata({
     };
   }
 
+  const seoTitle = getProjectSeoTitle(project);
+  const seoDescription = getProjectSeoDescription(project);
+
   return {
-    title: `${project.video_title} | Sakibul Saif`,
-    description: project.video_description,
+    title: seoTitle,
+    description: seoDescription,
     alternates: {
-      canonical: `https://www.itsSaif.me/project/${project.id}`,
+      canonical: `${siteUrl}/project/${project.id}`,
     },
     openGraph: {
-      title: `${project.video_title} | Sakibul Saif`,
-      description: project.video_description,
-      url: `https://www.itsSaif.me/project/${project.id}`,
+      title: seoTitle,
+      description: seoDescription,
+      url: `${siteUrl}/project/${project.id}`,
       images: [
         {
           url: `https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`,
           width: 1280,
           height: 720,
-          alt: project.video_title,
+          alt: `${project.video_title} by Sakibul Saif`,
         },
       ],
     },
     twitter: {
-      title: `${project.video_title} | Sakibul Saif`,
-      description: project.video_description,
+      title: seoTitle,
+      description: seoDescription,
       images: [`https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`],
     },
   };

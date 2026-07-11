@@ -12,7 +12,7 @@ import { Toaster } from "@/components/ui/sonner";
 import FramerLazyMotion from "@/components/framer-lazy-motion";
 import AnalyticsBeacon from "@/components/analytics-beacon";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], display: "swap", preload: true });
 // const nunito = Nunito({ subsets: ["latin"] });q
 
 export const metadata: Metadata = {
@@ -108,6 +108,8 @@ export default function RootLayout({
         <link rel="icon" href="/Logo.png" />
         <link rel="apple-touch-icon" href="/Logo.png" />
         <meta name="theme-color" content="#020817" />
+        <meta name="color-scheme" content="dark" />
+        <meta name="format-detection" content="telephone=no" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

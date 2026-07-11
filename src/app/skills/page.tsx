@@ -84,8 +84,10 @@ export default function SkillsPage() {
                     <div className="relative w-12 md:w-16 h-12 md:h-16">
                       <Image
                         src={skill.image_link}
-                        alt={skill.name}
+                        alt={`${skill.name} icon for Sakibul Saif's video editing and motion graphics expertise`}
                         fill
+                        sizes="(max-width: 768px) 48px, 64px"
+                        loading="lazy"
                         className="object-contain"
                       />
                     </div>
