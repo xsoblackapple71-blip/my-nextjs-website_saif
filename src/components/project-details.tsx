@@ -165,7 +165,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                                 {getProjectDisplayDescription(project)}
                             </p>
                             <p className="mt-4 text-sm text-blue-300">
-                                Looking for similar work? Visit my <a href="/_services" className="underline decoration-blue-400/50 underline-offset-4 hover:text-white">services</a> or <a href="/contact" className="underline decoration-blue-400/50 underline-offset-4 hover:text-white">get in touch</a>.
+                                Looking for similar work? Visit my <a href="/services" className="underline decoration-blue-400/50 underline-offset-4 hover:text-white">services</a> or <a href="/contact" className="underline decoration-blue-400/50 underline-offset-4 hover:text-white">contact me</a> to discuss your next project.
                             </p>
                         </div>
 

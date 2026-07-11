@@ -181,6 +181,7 @@ function CarouselPrevious({
 
   return (
     <Button
+      aria-label="Previous slide"
       data-slot="carousel-previous"
       variant={variant}
       size={size}
@@ -211,6 +212,7 @@ function CarouselNext({
 
   return (
     <Button
+      aria-label="Next slide"
       data-slot="carousel-next"
       variant={variant}
       size={size}

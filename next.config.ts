@@ -3,6 +3,20 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  async redirects() {
+    return [
+      {
+        source: "/_services",
+        destination: "/services",
+        permanent: true,
+      },
+      {
+        source: "/_services/:path*",
+        destination: "/services/:path*",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

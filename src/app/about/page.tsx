@@ -40,7 +40,7 @@ export default function AboutPage() {
             About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Sakibul Saif</span>
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Professional video editor and motion graphics designer with 3+ years of experience creating polished content for brands, creators, and businesses.
+            Professional video editor and motion graphics designer with 3+ years of experience creating polished content for brands, creators, and businesses. Browse my <a href="/#projects" className="text-blue-400 underline decoration-blue-400/40 underline-offset-4 hover:text-blue-300">recent projects</a> or <a href="/contact" className="text-blue-400 underline decoration-blue-400/40 underline-offset-4 hover:text-blue-300">start a conversation</a> about your next project.
           </p>
         </m.div>
 
@@ -198,9 +198,9 @@ export default function AboutPage() {
               description=""
               header={
                 <div className="flex flex-1 h-full w-full items-center justify-between px-6 bg-gradient-to-r from-neutral-900 to-neutral-800 rounded-xl border border-white/5 py-4 md:py-0 min-h-[5rem]">
-                  <a href="https://www.instagram.com/saif.mlx/" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-pink-600 hover:scale-110 transition-all duration-300 text-white"><Instagram size={20} /></a>
-                  <a href="https://www.youtube.com/@SakibulSaifxAlpha" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-red-600 hover:scale-110 transition-all duration-300 text-white"><Youtube size={20} /></a>
-                  <a href="https://mail.google.com/mail/?view=cm&to=saifefx@gmail.com" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-blue-600 hover:scale-110 transition-all duration-300 text-white"><Mail size={20} /></a>
+                  <a href="https://www.instagram.com/saif.mlx/" target="_blank" rel="noopener noreferrer" aria-label="Visit Sakibul Saif on Instagram" className="p-3 bg-white/5 rounded-full hover:bg-pink-600 hover:scale-110 transition-all duration-300 text-white"><Instagram size={20} /></a>
+                  <a href="https://www.youtube.com/@SakibulSaifxAlpha" target="_blank" rel="noopener noreferrer" aria-label="Visit Sakibul Saif on YouTube" className="p-3 bg-white/5 rounded-full hover:bg-red-600 hover:scale-110 transition-all duration-300 text-white"><Youtube size={20} /></a>
+                  <a href="https://mail.google.com/mail/?view=cm&to=saifefx@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email Sakibul Saif" className="p-3 bg-white/5 rounded-full hover:bg-blue-600 hover:scale-110 transition-all duration-300 text-white"><Mail size={20} /></a>
                 </div>
               }
               className="h-full"

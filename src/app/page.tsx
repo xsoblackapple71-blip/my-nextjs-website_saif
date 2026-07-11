@@ -74,7 +74,7 @@ export default function HomePage() {
               </span>
             </h2>
             <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
-              From polished corporate videos and real estate edits to YouTube storytelling and motion graphics, I focus on making your content not just polished, but powerful.
+              From polished corporate videos and real estate edits to YouTube storytelling and motion graphics, I focus on making your content not just polished, but powerful. Explore my <a href="/services" className="text-blue-400 underline decoration-blue-400/40 underline-offset-4 hover:text-blue-300">services</a> or <a href="/contact" className="text-blue-400 underline decoration-blue-400/40 underline-offset-4 hover:text-blue-300">contact me</a> to discuss your next project.
             </p>
 
             <div className="mx-auto mt-10 inline-flex items-center gap-3 rounded-full border border-cyan-400/20 bg-cyan-500/10 px-5 py-3 text-sm text-cyan-100 shadow-[0_0_40px_rgba(34,211,238,0.18)] backdrop-blur-xl">

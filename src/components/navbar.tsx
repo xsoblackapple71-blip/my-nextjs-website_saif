@@ -10,6 +10,7 @@ import { Clapperboard } from "./ui/Clapperboard";
 const navItems = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
   { name: "Skills", href: "/skills" },
   { name: "Contact", href: "/contact" },
 ];

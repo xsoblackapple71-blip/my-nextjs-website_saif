@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/contact",
     "/skills",
-    "/_services",
+    "/services",
   ].map((route) => ({
     url: `${siteUrl}${route}`,
     lastModified: new Date(),
