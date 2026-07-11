@@ -37,10 +37,10 @@ export default function AboutPage() {
           className="text-center mb-8"
         >
           <h1 className="text-4xl md:text-6xl font-bold mt-0 md:mt-20 mb-3 text-white tracking-tight">
-            The Man Behind the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Magic</span>
+            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Sakibul Saif</span>
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Visual Storyteller. Motion Graphics Artist. Problem Solver.
+            Professional video editor and motion graphics designer with 3+ years of experience creating polished content for brands, creators, and businesses.
           </p>
         </m.div>
 
@@ -78,7 +78,7 @@ export default function AboutPage() {
                     </m.div>
                     <div className="h-1 w-16 md:w-20 bg-purple-500 mt-4 rounded-full" />
                     <p className="text-gray-300 mt-4 text-xs md:text-sm font-medium tracking-wide uppercase">
-                      Professional Video Editor & Motion Designer
+                      Video Editor & Motion Graphics Designer
                     </p>
                   </div>
                 </div>
@@ -229,7 +229,7 @@ export default function AboutPage() {
                       </div>
                     </div>
                     <p className="text-gray-300 leading-relaxed text-sm md:text-base">
-                      My relationship with video editing started as a pure passion project, cutting and crafting music videos. The thrill of syncing visual beats with audio rhythms hooked me completely. Over time, that passion evolved as I shifted my focus towards complex motion graphics and dynamic visual storytelling. Today, every timeline I build is a blend of that raw, music-video-inspired energy and professional, high-end design precision.
+                      With 3+ years of experience, I create polished content using Adobe Premiere Pro, After Effects, Photoshop, and CapCut. My work spans corporate videos, real estate videos, talking head videos, YouTube content, and motion graphics for clients who value clear storytelling, strong visuals, and professional results.
                     </p>
                   </div>
                 </div>
