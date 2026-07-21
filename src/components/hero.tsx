@@ -1,5 +1,6 @@
 "use client";
 
+import type { MouseEvent } from "react";
 import { m } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import MagneticButton from "./magnetic-button";
@@ -9,14 +10,24 @@ import { useLenis } from "lenis/react";
 export default function Hero() {
     const lenis = useLenis();
 
-    const scrollToProjects = (e?: React.MouseEvent) => {
+    const scrollToProjects = (e?: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
         e?.preventDefault();
-        if (lenis) {
-            lenis.scrollTo("#projects", {
-                duration: 2,
-                offset: -100, // Account for fixed navbar
-                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential ease-out for premium feel
+
+        const target = document.getElementById("project-grid") ?? document.getElementById("projects");
+        const offset = 120;
+
+        if (lenis && target) {
+            lenis.scrollTo(target, {
+                duration: 1.4,
+                offset: -offset,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             });
+            return;
+        }
+
+        if (target) {
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top, behavior: "smooth" });
         }
     };
 

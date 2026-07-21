@@ -83,9 +83,11 @@ export default function HomePage() {
             </div>
           </div>
 
-          <Suspense fallback={<div className="text-center py-20 text-gray-400">Loading projects...</div>}>
-            <ProjectGrid initialCategories={updatedCategories} initialProjects={allProjects} />
-          </Suspense>
+          <div id="project-grid">
+            <Suspense fallback={<div className="text-center py-20 text-gray-400">Loading projects...</div>}>
+              <ProjectGrid initialCategories={updatedCategories} initialProjects={allProjects} />
+            </Suspense>
+          </div>
         </div>
       </section>
 

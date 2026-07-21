@@ -11,6 +11,7 @@ import SmoothScroll from "@/components/smooth-scroll";
 import { Toaster } from "@/components/ui/sonner";
 import FramerLazyMotion from "@/components/framer-lazy-motion";
 import AnalyticsBeacon from "@/components/analytics-beacon";
+import IntroVideo from "@/components/intro-video";
 
 const inter = Inter({ subsets: ["latin"], display: "swap", preload: true });
 // const nunito = Nunito({ subsets: ["latin"] });q
@@ -154,12 +155,16 @@ export default function RootLayout({
         <div className="grid-background-large min-h-screen">
           <SmoothScroll>
             <FramerLazyMotion>
-              <MouseMoveEffect />
-              <Navbar />
-              <main className="">{children}</main>
-              <Footer />
-              <JumpToTop />
-              <Toaster position="top-center" />
+              <IntroVideo>
+                <div className="min-h-screen">
+                  <MouseMoveEffect />
+                  <Navbar />
+                  <main className="">{children}</main>
+                  <Footer />
+                  <JumpToTop />
+                  <Toaster position="top-center" />
+                </div>
+              </IntroVideo>
             </FramerLazyMotion>
           </SmoothScroll>
         </div>
