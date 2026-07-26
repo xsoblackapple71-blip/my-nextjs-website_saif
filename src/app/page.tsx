@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import MouseMoveEffect from "@/components/mouse-move-effect";
 import Hero from "@/components/hero";
 import GlassmorphismCard from "@/components/glassmorphism-card";
+import ProjectCard from "@/components/project-card";
 import ProjectGrid from "@/components/project-grid";
 import {
   getVideoCategoriesWithCountIncludingAll,
@@ -87,6 +88,37 @@ export default function HomePage() {
             <Suspense fallback={<div className="text-center py-20 text-gray-400">Loading projects...</div>}>
               <ProjectGrid initialCategories={updatedCategories} initialProjects={allProjects} />
             </Suspense>
+          </div>
+        </div>
+      </section>
+
+      {/* Recent Projects Section (glowing like featured) */}
+      <section id="recent-projects" className="py-16 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12 relative">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] h-[260px] bg-blue-500/18 blur-[90px] rounded-full pointer-events-none" />
+
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white tracking-tight relative z-10">
+              Recent Projects
+            </h2>
+            <p className="text-gray-400 text-base max-w-2xl mx-auto font-light leading-relaxed">
+              Hand-picked recent work and short-form reels highlighting latest motion graphics and edits.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              "6H8qq7hUg4k",
+              "7ULoKOlXkgs",
+            ].map((id) => {
+              const project = allProjects.find((p) => p.id === id);
+              if (!project) return null;
+              return (
+                <div key={id}>
+                  <ProjectCard project={project} currentCategory={"Featured Projects"} />
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

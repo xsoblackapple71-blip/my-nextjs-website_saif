@@ -32,7 +32,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden">
+        <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-24 sm:pt-28">
             {/* Background Ambience - Deepened and refined */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[800px] bg-blue-900/15 rounded-[100%] blur-[120px] animate-pulse-slow" />
@@ -40,93 +40,114 @@ export default function Hero() {
                 <div className="absolute top-[20%] left-[-10%] w-[600px] h-[600px] bg-indigo-900/10 rounded-full blur-[120px]" />
             </div>
 
-            <div className="relative z-10 text-center px-4 md:px-8 max-w-6xl mx-auto w-full">
-                {/* Badge */}
-                <m.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
-                    className="inline-block mb-8 md:mb-10 w-full"
-                >
-                    <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl text-xs sm:text-sm font-medium text-blue-300 tracking-[0.2em] shadow-[0_0_30px_rgba(59,130,246,0.15)] uppercase">
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mr-2 animate-pulse" />
-                        Available for Hire
-                    </div>
-                </m.div>
-
-                {/* Main Title - Split for animation with tighter premium tracking */}
-                <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-white mb-8 leading-[0.9] w-full flex flex-col items-center">
-                    <span className="sr-only">Video Editor Bangladesh, Motion Graphics Designer Bangladesh, Freelance Video Editor, Corporate Video Editor, and Real Estate Video Editor.</span>
-                    <m.span
-                        initial={{ opacity: 0, y: 60, filter: "blur(10px)" }}
-                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                        transition={{ duration: 1, ease: [0.25, 1, 0.5, 1], delay: 0.1 }}
-                        className="block w-full bg-gradient-to-b from-white via-white/90 to-white/40 bg-clip-text text-transparent drop-shadow-sm pb-2"
+            <m.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
+                className="relative z-10 flex min-h-[calc(100vh-6rem)] w-full items-center justify-center px-4 py-10 sm:px-6 md:px-8 lg:px-10"
+            >
+                <div className="flex w-full max-w-7xl flex-col items-center justify-center text-center">
+                    <m.div
+                        initial={{ opacity: 0, scale: 0.96 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1], delay: 0.05 }}
+                        whileHover={{ scale: 1.02, boxShadow: "0 30px 120px rgba(59, 130, 246, 0.28)" }}
+                        className="group relative mx-auto mb-8 w-[92%] max-w-[1200px] cursor-pointer sm:w-[84%] md:mb-10 md:w-[78%]"
                     >
-                        CINEMATIC
-                    </m.span>
-                    <m.span
-                        initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
-                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                        transition={{ duration: 1, ease: [0.25, 1, 0.5, 1], delay: 0.3 }}
-                        className="block w-full text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 pb-4 filter drop-shadow-[0_0_30px_rgba(59,130,246,0.25)]"
+                        <div className="absolute inset-0 rounded-[24px] bg-gradient-to-br from-blue-500/20 via-indigo-500/10 to-purple-500/20 blur-3xl" />
+                        <div className="relative overflow-hidden rounded-[24px] border border-white/10 bg-slate-950/40 p-2 shadow-[0_24px_100px_rgba(2,6,23,0.55)] backdrop-blur-xl sm:p-3">
+                            <video
+                                className="aspect-[16/9] w-full rounded-[20px] object-cover"
+                                src="/videos/intro.mp4"
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                                controls={false}
+                                preload="metadata"
+                            />
+                        </div>
+                    </m.div>
+
+                    <m.div
+                        initial={{ opacity: 0, y: 24 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1], delay: 0.12 }}
+                        className="w-full"
                     >
-                        EDITOR
-                    </m.span>
-                </h1>
+                        <div className="mb-6 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] text-blue-300 shadow-[0_0_30px_rgba(59,130,246,0.15)] backdrop-blur-xl sm:text-xs">
+                            <span className="mr-2 h-2 w-2 animate-pulse rounded-full bg-blue-400" />
+                            Available for Hire
+                        </div>
 
-                {/* Subtitle */}
-                <m.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 1, 0.5, 1] }}
-                    className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed mb-12 sm:mb-16 md:px-0"
-                >
-                    I’m a freelance video editor and motion graphics designer in Bangladesh creating cinematic edits for YouTube, corporate brands, and real estate content with a strong focus on storytelling and polish.
-                </m.p>
-
-                {/* Buttons */}
-                <m.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.8, ease: [0.25, 1, 0.5, 1] }}
-                    className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full max-w-md mx-auto sm:max-w-none"
-                >
-                    <MagneticButton>
-                        <a
-                            href="#projects"
-                            onClick={scrollToProjects}
-                            className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 sm:px-10 py-4 text-base sm:text-lg font-semibold text-black bg-white rounded-full overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] cursor-pointer"
-                        >
-                            <span className="relative z-10 flex items-center">
-                                View Work
+                        <h1 className="mb-5 text-5xl font-bold leading-[0.9] tracking-[0.02em] text-white sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7.25rem]">
+                            <span className="block bg-gradient-to-b from-white via-white/95 to-white/45 bg-clip-text text-transparent drop-shadow-sm">
+                                SAKIBUL
                             </span>
-                        </a>
-                    </MagneticButton>
+                            <span className="mt-1 block bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(59,130,246,0.25)]">
+                                SAIF
+                            </span>
+                        </h1>
 
-                    <MagneticButton>
-                        <a
-                            href="/contact"
-                            className="group inline-flex items-center justify-center w-full sm:w-auto px-8 sm:px-10 py-4 text-base sm:text-lg font-medium text-white bg-white/5 border border-white/10 rounded-full backdrop-blur-2xl transition-all duration-500 hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+                        <m.p
+                            initial={{ opacity: 0, y: 18 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1], delay: 0.18 }}
+                            className="mx-auto mb-4 max-w-2xl text-base font-medium uppercase tracking-[0.28em] text-blue-200/90 sm:text-lg"
                         >
-                            Contact Me
-                        </a>
-                    </MagneticButton>
-                </m.div>
-            </div>
+                            Cinematic Video Editor & Motion Graphics Designer
+                        </m.p>
+
+                        <m.p
+                            initial={{ opacity: 0, y: 18 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1], delay: 0.24 }}
+                            className="mx-auto mb-8 max-w-2xl text-sm leading-relaxed text-gray-400 sm:text-base md:text-lg"
+                        >
+                            I create cinematic edits for YouTube, corporate brands and real estate with a strong focus on storytelling and premium visuals.
+                        </m.p>
+                    </m.div>
+
+                    <m.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1], delay: 0.3 }}
+                        className="flex w-full max-w-md flex-col items-center justify-center gap-4 sm:max-w-none sm:flex-row sm:gap-6"
+                    >
+                        <MagneticButton>
+                            <a
+                                href="#projects"
+                                onClick={scrollToProjects}
+                                className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-full bg-white px-8 py-4 text-base font-semibold text-black transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] sm:w-auto sm:px-10 sm:text-lg"
+                            >
+                                <span className="relative z-10 flex items-center">View Portfolio</span>
+                            </a>
+                        </MagneticButton>
+
+                        <MagneticButton>
+                            <a
+                                href="/contact"
+                                className="group inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/5 px-8 py-4 text-base font-medium text-white backdrop-blur-2xl transition-all duration-500 hover:border-white/20 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] sm:w-auto sm:px-10 sm:text-lg"
+                            >
+                                Contact Me
+                            </a>
+                        </MagneticButton>
+                    </m.div>
+                </div>
+            </m.div>
 
             {/* Scroll Indicator */}
             <m.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5, duration: 1.5 }}
-                className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2"
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 sm:bottom-12"
             >
                 <button
                     onClick={scrollToProjects}
-                    className="flex flex-col items-center gap-3 text-white/40 hover:text-white transition-colors duration-500"
+                    className="flex flex-col items-center gap-3 text-white/40 transition-colors duration-500 hover:text-white"
                 >
-                    <span className="text-[9px] sm:text-[10px] tracking-[0.3em] uppercase font-medium">Scroll</span>
+                    <span className="text-[9px] font-medium uppercase tracking-[0.3em] sm:text-[10px]">Scroll</span>
                     <ArrowDown className="animate-bounce" size={18} strokeWidth={1.5} />
                 </button>
             </m.div>
