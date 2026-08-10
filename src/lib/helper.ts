@@ -21,6 +21,7 @@ const CATEGORY_NORMALIZATION: Record<string, string> = {
   "Talking head": "Talking Head",
   "Talking Head": "Talking Head",
   "Event Videos": "Event Videos",
+  "Documentary": "Documentary",
   "Tutorial": "Tutorial",
   "Logo animation": "Logo Animation",
   "Logo Animation": "Logo Animation",
@@ -28,8 +29,6 @@ const CATEGORY_NORMALIZATION: Record<string, string> = {
   "Seminar Videos": "Seminar Videos",
   "Motion reel": "Motion Reel",
   "Motion Reel": "Motion Reel",
-  "Anime fact Reel Video": "Anime Fact Reel Videos",
-  "Anime Fact Reel Videos": "Anime Fact Reel Videos",
 };
 
 export const VIDEO_CATEGORY_ORDER = [
@@ -37,6 +36,7 @@ export const VIDEO_CATEGORY_ORDER = [
   "All",
   "Promotional Videos",
   "Corporate Videos",
+  "Documentary",
   "Motion Graphics",
   "Music Videos",
   "Talking Head",
@@ -45,7 +45,7 @@ export const VIDEO_CATEGORY_ORDER = [
   "Logo Animation",
   "Seminar Videos",
   "Motion Reel",
-  "Anime Fact Reel Videos",
+
 ];
 
 export const normalizeVideoCategory = (category: string): string | null => {
