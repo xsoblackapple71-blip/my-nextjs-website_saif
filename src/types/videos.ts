@@ -13,6 +13,7 @@ export interface VideoProject {
   category: string[];
   duration?: string;
   software_used?: string[];
+  timelineImage?: string;
 }
 
 export interface Client {

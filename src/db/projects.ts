@@ -1025,6 +1025,7 @@ export const allVideoProjects: VideoProject[] = [
     category: ["Motion Graphics"],
     duration: "",
     software_used: ["Adobe After Effects", "Adobe Premiere Pro"],
+    timelineImage: "/Nike-project.png",
   },
   {
     id: "n5m67OJfXsk",
@@ -1105,6 +1106,7 @@ export const allVideoProjects: VideoProject[] = [
     category: ["Motion Graphics"],
     duration: "",
     software_used: ["After Effects"],
+    timelineImage: "/Gift ANimation project.png",
   },
   {
     id: "motion_06",
@@ -1121,6 +1123,7 @@ export const allVideoProjects: VideoProject[] = [
     category: ["Motion Graphics"],
     duration: "",
     software_used: ["After Effects"],
+    timelineImage: "/Welcome-AlphaNet.png",
   },
   {
     id: "motion_07",
@@ -1137,6 +1140,24 @@ export const allVideoProjects: VideoProject[] = [
     category: ["Motion Graphics"],
     duration: "",
     software_used: ["After Effects"],
+    timelineImage: "/Gift ANimation project.png",
+  },
+  {
+    id: "motion_07b",
+    video_title: "Raffle Draw animation",
+    video_description: "Event-specific motion graphics created for **Alpha Net's Silver Jubilee celebration**, designed to run as **continuous loops on the Main LED and Side Wing LED screens** throughout the event.\n\nThe visuals were created to enhance the stage experience, maintain a consistent **25 Years / Silver Jubilee brand identity**, and provide premium animated backgrounds for different moments of the celebration.\n\n**Purpose:** Main LED & Side Wing LED Loop Visuals\n**Event:** Alpha Net Silver Jubilee\n**Software:** Adobe After Effects",
+    tags: ["Animation", "Motion Graphics", "Raffle"],
+    cover_image: "6H8qq7hUg4k",
+    publish_date: "2026-08-15",
+    client_name: "Alpha Net",
+    client_image: "/companies/alpha-net.png",
+    client_feedback: "",
+    video_link: "https://www.youtube.com/watch?v=6H8qq7hUg4k",
+    project_images: [],
+    category: ["Motion Graphics"],
+    duration: "",
+    software_used: ["After Effects"],
+    timelineImage: "/Raffle draw project.png",
   },
   {
     id: "motion_08",
@@ -1153,6 +1174,7 @@ export const allVideoProjects: VideoProject[] = [
     category: ["Motion Graphics"],
     duration: "",
     software_used: ["After Effects"],
+    timelineImage: "/Mohseen Project.png",
   },
   {
     id: "motion_09",
@@ -1169,6 +1191,7 @@ export const allVideoProjects: VideoProject[] = [
     category: ["Motion Graphics"],
     duration: "",
     software_used: ["After Effects"],
+    timelineImage: "/Alora Cloud Project.png",
   },
 ];
 

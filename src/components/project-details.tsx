@@ -254,6 +254,31 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                     </GlassmorphismCard>
                 </m.div>
 
+                {project.timelineImage && (
+                    <m.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.15 }}
+                        className="mb-8"
+                    >
+                        <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6 md:p-8 backdrop-blur-md">
+                            <h3 className="text-xl md:text-2xl font-bold text-white">Project Timeline</h3>
+                            <p className="mt-2 text-gray-400">
+                                A detailed look at the layer organization, timing, and keyframe structure for this project.
+                            </p>
+                            <div className="mt-4 overflow-hidden rounded-xl border border-white/10 shadow-lg">
+                                <Image
+                                    src={project.timelineImage}
+                                    alt={`${project.video_title} timeline overview`}
+                                    width={1600}
+                                    height={900}
+                                    className="h-auto w-full rounded-xl transition-transform duration-300 hover:scale-[1.01]"
+                                />
+                            </div>
+                        </div>
+                    </m.div>
+                )}
+
                 {/* Project Gallery */}
                 {project.project_images && project.project_images.length > 0 && (
                     <m.div
