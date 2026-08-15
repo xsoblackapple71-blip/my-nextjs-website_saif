@@ -55,7 +55,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
     const projectScrollId = searchParams.get("scrollTo") || project.id;
     const [showVideo, setShowVideo] = useState(false);
     const embedUrl = getYouTubeEmbedUrl(project.video_link);
-    const detailsPlayerSrc = embedUrl ? `${embedUrl}?autoplay=1` : null;
+    const detailsPlayerSrc = embedUrl ? `${embedUrl}?autoplay=1&modestbranding=1&showinfo=0&rel=0` : null;
 
         const handleBack = useCallback(() => {
             const canGoBack =
@@ -103,14 +103,14 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                     className="mb-8"
                 >
                     <GlassmorphismCard className="p-4 md:p-6">
-                        <div className="aspect-video relative rounded-lg overflow-hidden bg-gray-900">
+                        <div className="relative w-full overflow-hidden rounded-xl bg-gray-900" style={{ aspectRatio: "16 / 9.28" }}>
                             {showVideo && detailsPlayerSrc ? (
                                 <iframe
                                     src={detailsPlayerSrc}
                                     title={project.video_title}
-                                    className="w-full h-full"
+                                    className="absolute inset-0 h-full w-full border-0 object-cover pointer-events-auto"
                                     allowFullScreen
-                                    allow="autoplay; encrypted-media"
+                                    allow="autoplay; encrypted-media; picture-in-picture"
                                 />
                             ) : (
                                 <div className="relative w-full h-full">

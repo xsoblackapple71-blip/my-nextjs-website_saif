@@ -7,10 +7,12 @@ interface IntroVideoProps {
 }
 
 export default function IntroVideo({ children }: IntroVideoProps) {
+  const videoSources = ["/videos/intro.mp4", "/videos/intro 2.mp4"];
   const [mounted, setMounted] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isExiting, setIsExiting] = useState(false);
   const [shouldShowIntro, setShouldShowIntro] = useState(true);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const foregroundVideoRef = useRef<HTMLVideoElement | null>(null);
   const backgroundVideoRef = useRef<HTMLVideoElement | null>(null);
   const exitTimerRef = useRef<number | null>(null);
@@ -54,6 +56,13 @@ export default function IntroVideo({ children }: IntroVideoProps) {
     }, 300);
   };
 
+  const handleVideoEnded = () => {
+    setCurrentVideoIndex((previousIndex) => {
+      const nextIndex = (previousIndex + 1) % videoSources.length;
+      return nextIndex;
+    });
+  };
+
   useEffect(() => {
     setMounted(true);
 
@@ -71,11 +80,11 @@ export default function IntroVideo({ children }: IntroVideoProps) {
     if (!foreground || !background) return;
 
     const handleEnded = () => {
-      stopAllPlayback();
-      finishIntro();
+      handleVideoEnded();
     };
 
     foreground.addEventListener("ended", handleEnded);
+    background.addEventListener("ended", handleEnded);
 
     void Promise.all([foreground.play(), background.play()]).catch(() => undefined);
 
@@ -86,9 +95,26 @@ export default function IntroVideo({ children }: IntroVideoProps) {
       }
 
       foreground.removeEventListener("ended", handleEnded);
+      background.removeEventListener("ended", handleEnded);
       stopAllPlayback();
     };
   }, []);
+
+  useEffect(() => {
+    const foreground = foregroundVideoRef.current;
+    const background = backgroundVideoRef.current;
+
+    if (!foreground || !background) return;
+
+    const currentSource = videoSources[currentVideoIndex];
+
+    foreground.src = currentSource;
+    background.src = currentSource;
+    foreground.load();
+    background.load();
+
+    void Promise.all([foreground.play(), background.play()]).catch(() => undefined);
+  }, [currentVideoIndex, videoSources]);
 
   if (!mounted) {
     return null;
@@ -113,8 +139,9 @@ export default function IntroVideo({ children }: IntroVideoProps) {
             muted
             playsInline
             preload="auto"
+            onEnded={handleVideoEnded}
           >
-            <source src="/videos/intro.mp4" type="video/mp4" />
+            <source src={videoSources[currentVideoIndex]} type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.18),_transparent_55%),linear-gradient(135deg,_rgba(2,6,23,0.9),_rgba(2,6,23,0.72))]" />
         </div>
@@ -139,9 +166,9 @@ export default function IntroVideo({ children }: IntroVideoProps) {
               controls
               controlsList="nodownload noplaybackrate nofullscreen"
               disablePictureInPicture
-              onEnded={finishIntro}
+              onEnded={handleVideoEnded}
             >
-              <source src="/videos/intro.mp4" type="video/mp4" />
+              <source src={videoSources[currentVideoIndex]} type="video/mp4" />
             </video>
           </div>
         </div>

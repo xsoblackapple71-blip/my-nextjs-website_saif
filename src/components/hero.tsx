@@ -1,6 +1,7 @@
 "use client";
 
 import type { MouseEvent } from "react";
+import { useState } from "react";
 import { m } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import MagneticButton from "./magnetic-button";
@@ -8,6 +9,8 @@ import MagneticButton from "./magnetic-button";
 import { useLenis } from "lenis/react";
 
 export default function Hero() {
+    const videos = ["/videos/intro.mp4", "/videos/intro 2.mp4"];
+    const [currentIndex, setCurrentIndex] = useState(0);
     const lenis = useLenis();
 
     const scrollToProjects = (e?: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
@@ -57,14 +60,15 @@ export default function Hero() {
                         <div className="absolute inset-0 rounded-[24px] bg-gradient-to-br from-blue-500/20 via-indigo-500/10 to-purple-500/20 blur-3xl" />
                         <div className="relative overflow-hidden rounded-[24px] border border-white/10 bg-slate-950/40 p-2 shadow-[0_24px_100px_rgba(2,6,23,0.55)] backdrop-blur-xl sm:p-3">
                             <video
+                                key={currentIndex}
                                 className="aspect-[16/9] w-full rounded-[20px] object-cover"
-                                src="/videos/intro.mp4"
+                                src={videos[currentIndex]}
                                 autoPlay
                                 muted
-                                loop
                                 playsInline
                                 controls={false}
                                 preload="metadata"
+                                onEnded={() => setCurrentIndex((prev) => (prev + 1) % videos.length)}
                             />
                         </div>
                     </m.div>

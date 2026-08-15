@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { m, AnimatePresence  } from "framer-motion";
-import { Play } from "lucide-react";
+import { m, AnimatePresence } from "framer-motion";
+import { Play, X } from "lucide-react";
 import GlassmorphismCard from "@/components/glassmorphism-card";
 import CategoryPlaceholder from "@/components/category-placeholder";
 import YouTubeChannelLogo from "@/components/youtube-channel-logo";
@@ -19,144 +19,91 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, currentCategory = "All" }: ProjectCardProps) {
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [imageError, setImageError] = useState(false);
-    const cardRef = useRef<HTMLDivElement>(null);
     const embedUrl = getYouTubeEmbedUrl(project.video_link);
-    const previewPlayerSrc = embedUrl
-        ? `${embedUrl}?autoplay=1&mute=0&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&playsinline=1`
+    const modalPlayerSrc = embedUrl
+        ? `${embedUrl}?autoplay=1&modestbranding=1&showinfo=0&rel=0&playsinline=1`
         : null;
 
-    // Handle click outside to stop playing
     useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (cardRef.current && !cardRef.current.contains(event.target as Node)) {
-                setIsPlaying(false);
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                setIsModalOpen(false);
             }
         };
 
-        if (isPlaying) {
-            document.addEventListener("mousedown", handleClickOutside);
+        if (isModalOpen) {
+            document.addEventListener("keydown", handleKeyDown);
+            document.body.style.overflow = "hidden";
         }
 
         return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("keydown", handleKeyDown);
+            document.body.style.overflow = "";
         };
-    }, [isPlaying]);
+    }, [isModalOpen]);
 
-    const handlePlayClick = (e: React.MouseEvent) => {
+    const handleOpenModal = (e: React.MouseEvent) => {
         e.stopPropagation();
         e.preventDefault();
-        setIsPlaying(true);
+        setIsModalOpen(true);
     };
 
-    const handleStopClick = (e?: React.MouseEvent) => {
+    const handleCloseModal = (e?: React.MouseEvent) => {
         e?.stopPropagation();
         e?.preventDefault();
-        setIsPlaying(false);
+        setIsModalOpen(false);
     };
 
     return (
-        <div ref={cardRef} className="h-full">
+        <div className="h-full">
             <GlassmorphismCard className="h-full group hover:shadow-2xl hover:shadow-blue-900/10 transition-shadow duration-500 flex flex-col">
                 <div className="flex flex-col h-full p-5">
                     {/* Media Area */}
                     <div className="relative overflow-hidden rounded-2xl aspect-video mb-5 shadow-lg bg-black isolate">
-                        <AnimatePresence mode="wait">
-                            {isPlaying ? (
+                        <div
+                            className="relative w-full h-full cursor-pointer group/thumb"
+                            onClick={handleOpenModal}
+                        >
+                            {imageError ? (
+                                <CategoryPlaceholder 
+                                    category={project.category[0] || 'Video'}
+                                    title={project.video_title}
+                                />
+                            ) : (
                                 <m.div
-                                    key="video-player"
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
-                                    className="absolute inset-0 z-20"
+                                    className="w-full h-full"
                                 >
-                                    {previewPlayerSrc ? (
-                                        <div className="absolute inset-0 overflow-hidden">
-                                            <div className="absolute inset-0 scale-[1.14] -translate-y-[4%]">
-                                                <iframe
-                                                    src={previewPlayerSrc}
-                                                    title={project.video_title}
-                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                    allowFullScreen
-                                                    className="w-full h-[110%] border-0"
-                                                />
-                                            </div>
-                                        </div>
-                                    ) : (
-                                        <div className="w-full h-full bg-black/80 flex items-center justify-center text-white text-sm">
-                                            <span>Video unavailable for embedding</span>
-                                        </div>
-                                    )}
-                                    <button
-                                        onClick={handleStopClick}
-                                        className="absolute top-2 right-2 bg-black/60 hover:bg-black/80 text-white p-1.5 rounded-full backdrop-blur-md transition-colors z-30"
-                                        aria-label="Close preview"
-                                    >
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="16"
-                                            height="16"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            strokeWidth="2"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        >
-                                            <path d="M18 6 6 18" />
-                                            <path d="m6 6 18 18" />
-                                        </svg>
-                                    </button>
+                                    <Image
+                                        src={`https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`}
+                                        alt={`${project.video_title} thumbnail for ${project.category[0] || "video project"}`}
+                                        fill
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        loading="lazy"
+                                        onError={() => setImageError(true)}
+                                    />
                                 </m.div>
-                            ) : (
-                                <div
-                                    key="thumbnail"
-                                    className="relative w-full h-full cursor-pointer group/thumb"
-                                    onClick={handlePlayClick}
-                                >
-                                    {imageError ? (
-                                        <CategoryPlaceholder 
-                                            category={project.category[0] || 'Video'}
-                                            title={project.video_title}
-                                        />
-                                    ) : (
-                                        <m.div
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            exit={{ opacity: 0 }}
-                                            className="w-full h-full"
-                                        >
-                                            <Image
-                                                src={`https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`}
-                                                alt={`${project.video_title} thumbnail for ${project.category[0] || "video project"}`}
-                                                fill
-                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                                loading="lazy"
-                                                onError={() => setImageError(true)}
-                                            />
-                                        </m.div>
-                                    )}
+                            )}
 
-                                    {/* Play Button Overlay */}
-                                    {!imageError && (
-                                        <div className="absolute inset-0 bg-black/20 group-hover/thumb:bg-black/40 transition-colors duration-300 flex items-center justify-center backdrop-blur-[0px] group-hover/thumb:backdrop-blur-[2px]">
-                                            <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 text-white transform scale-90 group-hover/thumb:scale-110 transition-all duration-300 shadow-xl shadow-black/20">
-                                                <Play className="ml-1 fill-white" size={28} />
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    {/* Duration Badge */}
-                                    {project.duration && (
-                                        <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur-sm border border-white/10 text-white text-[10px] font-bold px-2 py-1 rounded-md">
-                                            {project.duration}
-                                        </div>
-                                    )}
+                            {!imageError && (
+                                <div className="absolute inset-0 bg-black/20 group-hover/thumb:bg-black/40 transition-colors duration-300 flex items-center justify-center backdrop-blur-[0px] group-hover/thumb:backdrop-blur-[2px]">
+                                    <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 text-white transform scale-90 group-hover/thumb:scale-110 transition-all duration-300 shadow-xl shadow-black/20">
+                                        <Play className="ml-1 fill-white" size={28} />
+                                    </div>
                                 </div>
                             )}
-                        </AnimatePresence>
+
+                            {project.duration && (
+                                <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur-sm border border-white/10 text-white text-[10px] font-bold px-2 py-1 rounded-md">
+                                    {project.duration}
+                                </div>
+                            )}
+                        </div>
                     </div>
 
                     {/* Content Area */}
@@ -212,6 +159,52 @@ export default function ProjectCard({ project, currentCategory = "All" }: Projec
                     </div>
                 </div>
             </GlassmorphismCard>
+
+            <AnimatePresence>
+                {isModalOpen && (
+                    <m.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-sm px-4 sm:px-6"
+                        onClick={handleCloseModal}
+                    >
+                        <m.div
+                            initial={{ scale: 0.96, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.96, opacity: 0, y: 20 }}
+                            transition={{ duration: 0.2 }}
+                            className="relative w-full max-w-5xl"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button
+                                type="button"
+                                onClick={handleCloseModal}
+                                className="absolute -top-12 right-0 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white transition hover:bg-black/80"
+                                aria-label="Close video"
+                            >
+                                <X size={18} />
+                            </button>
+
+                            {modalPlayerSrc ? (
+                                <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-black shadow-2xl" style={{ aspectRatio: "16 / 9" }}>
+                                    <iframe
+                                        src={modalPlayerSrc}
+                                        title={project.video_title}
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowFullScreen
+                                        className="absolute inset-0 h-full w-full border-0"
+                                    />
+                                </div>
+                            ) : (
+                                <div className="flex h-[60vh] w-full items-center justify-center rounded-2xl bg-black/80 text-white">
+                                    Video unavailable for embedding
+                                </div>
+                            )}
+                        </m.div>
+                    </m.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }
