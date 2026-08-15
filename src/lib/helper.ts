@@ -33,11 +33,11 @@ const CATEGORY_NORMALIZATION: Record<string, string> = {
 
 export const VIDEO_CATEGORY_ORDER = [
   "Featured Projects",
+  "Motion Graphics",
   "All",
   "Promotional Videos",
   "Corporate Videos",
   "Documentary",
-  "Motion Graphics",
   "Music Videos",
   "Talking Head",
   "Event Videos",
@@ -57,9 +57,6 @@ const getProjectNormalizedCategories = (project: VideoProject): string[] => {
   project.category.forEach((category) => {
     const normalized = normalizeVideoCategory(category);
     if (!normalized) return;
-    if (normalized === "Motion Graphics" && !project.id.startsWith("motion_")) {
-      return;
-    }
     normalizedSet.add(normalized);
   });
   return Array.from(normalizedSet);

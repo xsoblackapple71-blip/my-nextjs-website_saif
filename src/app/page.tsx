@@ -52,8 +52,9 @@ export default function HomePage() {
   // Update "All" count to match filtered projects and remove duplicate categories
   const updatedCategories = [
     { category: "Featured Projects", count: featuredProjects.length },
+    ...categories.filter((category) => category.category === "Motion Graphics" && category.count > 0),
     { category: "All", count: allProjects.length },
-    ...categories.filter((category) => category.category !== "All" && category.count > 0),
+    ...categories.filter((category) => category.category !== "All" && category.category !== "Motion Graphics" && category.count > 0),
   ];
 
   return (

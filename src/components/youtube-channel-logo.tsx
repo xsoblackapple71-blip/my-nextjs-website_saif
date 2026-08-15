@@ -20,11 +20,22 @@ export default function YouTubeChannelLogo({
   const [logoUrl, setLogoUrl] = useState<string>(fallbackImage || '/placeholder.svg');
   const [isLoading, setIsLoading] = useState(true);
 
+  // For companies with local logos (Alpha Net, Nike, etc.), use the local logo directly
+  const useLocalLogo = fallbackImage && fallbackImage.startsWith('/companies/');
+
   useEffect(() => {
     let mounted = true;
     async function load() {
       try {
         setIsLoading(true);
+        
+        // Skip YouTube fetch if using local company logo
+        if (useLocalLogo) {
+          setLogoUrl(fallbackImage);
+          setIsLoading(false);
+          return;
+        }
+
         const info = await fetchYouTubeChannelLogo(videoUrl);
         if (!mounted) return;
         setLogoUrl(info.channelLogo);
@@ -36,12 +47,12 @@ export default function YouTubeChannelLogo({
     }
     load();
     return () => { mounted = false; };
-  }, [videoUrl]);
+  }, [videoUrl, useLocalLogo, fallbackImage]);
 
   return (
-    <div className={`${className} rounded-2xl overflow-hidden bg-white/5 p-1 flex items-center justify-center`}>
+    <div className={`${className} rounded-2xl overflow-hidden bg-white/5 ${useLocalLogo ? 'p-0' : 'p-1'} flex items-center justify-center`}>
       <div className={`relative w-full h-full ${isLoading ? 'animate-pulse' : ''}`}>
-        <Image src={logoUrl} alt={clientName ? `${clientName} YouTube channel logo` : 'YouTube channel logo'} fill sizes="48px" loading="lazy" className="object-contain" onError={() => {}} priority={false} />
+        <Image src={logoUrl} alt={clientName ? `${clientName} logo` : 'Company logo'} fill sizes="48px" loading="lazy" className={useLocalLogo ? 'object-cover scale-110' : 'object-contain'} onError={() => {}} priority={false} />
       </div>
     </div>
   );

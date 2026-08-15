@@ -191,7 +191,13 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                                     </div>
                                     <div className="flex items-center text-gray-400">
                                         <User className="mr-2" size={14} />
-                                        <span>Client: {project.client_name}</span>
+                                        <span>
+                                            {project.client_name === "Alpha Net"
+                                                ? "Internal Project: Alpha Net"
+                                                : project.client_name === "Nike"
+                                                ? "Personal Project (Concept for Nike)"
+                                                : `Client: ${project.client_name}`}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
