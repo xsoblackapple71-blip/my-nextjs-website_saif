@@ -22,6 +22,14 @@ export default function ProjectCard({ project, currentCategory = "All" }: Projec
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [imageError, setImageError] = useState(false);
     const embedUrl = getYouTubeEmbedUrl(project.video_link);
+    const clientLogo =
+        (project as any).clientLogo ||
+        (project as any).clientImage ||
+        (project as any).authorImage ||
+        (project as any).logo ||
+        project.client_image ||
+        "";
+    const hasClientLogo = Boolean(clientLogo && clientLogo.trim());
     const modalPlayerSrc = embedUrl
         ? `${embedUrl}?autoplay=1&modestbranding=1&showinfo=0&rel=0&playsinline=1`
         : null;
@@ -130,13 +138,21 @@ export default function ProjectCard({ project, currentCategory = "All" }: Projec
                         {/* Actions & Metadata */}
                         <div className="mt-auto pt-5 border-t border-white/5 flex items-center justify-between">
                             <div className="flex items-center space-x-3">
-                                <div className="w-8 h-8 rounded-full overflow-hidden border border-white/10">
-                                    <YouTubeChannelLogo
-                                        videoUrl={project.video_link}
-                                        clientName={project.client_name}
-                                        className="w-8 h-8"
-                                        fallbackImage={project.client_image}
-                                    />
+                                <div className="w-8 h-8 rounded-full overflow-hidden border border-white/10 bg-white/5 flex items-center justify-center">
+                                    {hasClientLogo ? (
+                                        <img
+                                            src={clientLogo}
+                                            alt={project.client_name}
+                                            className="w-8 h-8 rounded-full object-cover"
+                                        />
+                                    ) : (
+                                        <YouTubeChannelLogo
+                                            videoUrl={project.video_link}
+                                            clientName={project.client_name}
+                                            className="w-8 h-8"
+                                            fallbackImage={project.client_image}
+                                        />
+                                    )}
                                 </div>
                                 <div className="flex flex-col">
                                     <span className="text-xs font-medium text-white line-clamp-1 max-w-[100px] truncate">{project.client_name}</span>

@@ -34,10 +34,10 @@ const CATEGORY_NORMALIZATION: Record<string, string> = {
 export const VIDEO_CATEGORY_ORDER = [
   "Featured Projects",
   "Motion Graphics",
+  "Documentary",
   "All",
   "Promotional Videos",
   "Corporate Videos",
-  "Documentary",
   "Music Videos",
   "Talking Head",
   "Event Videos",
@@ -45,7 +45,6 @@ export const VIDEO_CATEGORY_ORDER = [
   "Logo Animation",
   "Seminar Videos",
   "Motion Reel",
-
 ];
 
 export const normalizeVideoCategory = (category: string): string | null => {

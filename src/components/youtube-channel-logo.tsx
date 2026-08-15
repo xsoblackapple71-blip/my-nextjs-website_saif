@@ -20,8 +20,10 @@ export default function YouTubeChannelLogo({
   const [logoUrl, setLogoUrl] = useState<string>(fallbackImage || '/placeholder.svg');
   const [isLoading, setIsLoading] = useState(true);
 
-  // For companies with local logos (Alpha Net, Nike, etc.), use the local logo directly
-  const useLocalLogo = fallbackImage && fallbackImage.startsWith('/companies/');
+  // Use local asset logos when they are stored in the app's public folder (e.g. /companies/... or /Nova Logo.png)
+  const useLocalLogo = Boolean(
+    fallbackImage && (fallbackImage.startsWith('/companies/') || fallbackImage.startsWith('/'))
+  );
 
   useEffect(() => {
     let mounted = true;

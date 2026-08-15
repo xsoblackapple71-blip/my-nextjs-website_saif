@@ -53,8 +53,9 @@ export default function HomePage() {
   const updatedCategories = [
     { category: "Featured Projects", count: featuredProjects.length },
     ...categories.filter((category) => category.category === "Motion Graphics" && category.count > 0),
+    ...categories.filter((category) => category.category === "Documentary" && category.count > 0),
     { category: "All", count: allProjects.length },
-    ...categories.filter((category) => category.category !== "All" && category.category !== "Motion Graphics" && category.count > 0),
+    ...categories.filter((category) => category.category !== "All" && category.category !== "Motion Graphics" && category.category !== "Documentary" && category.count > 0),
   ];
 
   return (

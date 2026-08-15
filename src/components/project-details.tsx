@@ -196,6 +196,8 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                                                 ? "Internal Project: Alpha Net"
                                                 : project.client_name === "Nike"
                                                 ? "Personal Project (Concept for Nike)"
+                                                : project.client_name === "Nova Foundation"
+                                                ? "Internal Project: Nova Foundation"
                                                 : `Client: ${project.client_name}`}
                                         </span>
                                     </div>
