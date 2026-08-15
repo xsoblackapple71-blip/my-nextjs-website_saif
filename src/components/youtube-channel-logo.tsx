@@ -33,7 +33,7 @@ export default function YouTubeChannelLogo({
         
         // Skip YouTube fetch if using local company logo
         if (useLocalLogo) {
-          setLogoUrl(fallbackImage);
+          setLogoUrl(fallbackImage || "");
           setIsLoading(false);
           return;
         }
