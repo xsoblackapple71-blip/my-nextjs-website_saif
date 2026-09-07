@@ -1,10 +1,19 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { allVideoProjects } from "@/db/projects";
+import {
+  allVideoProjects,
+  featuredLongFormProjects,
+  featuredShortFormProjects,
+} from "@/db/projects";
 import ProjectDetails from "@/components/project-details";
 import type { VideoProject } from "@/types/videos";
 
 const siteUrl = "https://saifstudio.vercel.app";
+const projectCatalog = [
+  ...featuredLongFormProjects,
+  ...featuredShortFormProjects,
+  ...allVideoProjects,
+];
 
 function getProjectSeoTitle(project: VideoProject) {
   const categoryLabel = project.category?.[0] || "Video Project";
@@ -26,7 +35,7 @@ function getProjectSeoDescription(project: VideoProject) {
 
 // Generate unique static params for all projects
 export async function generateStaticParams() {
-  return allVideoProjects.map((project) => ({
+  return projectCatalog.map((project) => ({
     id: project.id,
   }));
 }
@@ -38,7 +47,7 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  const project = allVideoProjects.find((p) => p.id === id);
+  const project = projectCatalog.find((p) => p.id === id);
 
   if (!project) {
     return {
@@ -82,7 +91,7 @@ export default async function ProjectPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const project = allVideoProjects.find((p) => p.id === id);
+  const project = projectCatalog.find((p) => p.id === id);
 
   if (!project) {
     notFound();

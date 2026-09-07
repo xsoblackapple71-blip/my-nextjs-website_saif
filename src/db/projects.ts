@@ -1196,22 +1196,56 @@ export const allVideoProjects: VideoProject[] = [
 ];
 
 export const featuredVideoProjectIds = [
-  "qxt_8dWBTZI",
-  "ocgk_zOtDfo",
-  "oofT9jztcp0",
-  "uI1jJ0z97TA",
-  "R4Er8qh_EkY",
-  "f8PK3mRD3Qc",
-  "-VqfDapsFLA",
-  "N4IIZ7bAW9c",
-  "6H8qq7hUg4k",
-  "7RHcg3bsLP4",
-  "GglZ0mqxQyA",
 ];
 
 export const featuredVideoProjects: VideoProject[] = featuredVideoProjectIds
   .map((id) => allVideoProjects.find((project) => project.id === id))
   .filter((project): project is VideoProject => !!project);
+
+const createFeaturedProject = (
+  id: string,
+  title: string,
+  videoLink: string,
+  category: "Long Form" | "Short Form" | "Short Documentary",
+  clientName = "Sakibul Saif"
+): VideoProject => ({
+  id,
+  video_title: title,
+  video_description: "",
+  tags: [category],
+  cover_image: id,
+  publish_date: "2026-09-07",
+  client_name: clientName,
+  client_image: "",
+  client_feedback: "",
+  video_link: videoLink,
+  project_images: [],
+  category: [category],
+});
+
+export const featuredLongFormProjects: VideoProject[] = [
+  createFeaturedProject("_bvTVyiPBno", "Business Email - Go digital", "https://www.youtube.com/watch?v=_bvTVyiPBno", "Long Form", "Go digital"),
+  createFeaturedProject("YDVRnIduKA0", "12 Sec Intro for Interior Squard BD", "https://youtu.be/YDVRnIduKA0", "Long Form", "Interior Squard BD"),
+  createFeaturedProject("K8Z0ZklQdNY", "English Content Demo", "https://youtu.be/K8Z0ZklQdNY", "Long Form", "Being Limitless Agency"),
+  createFeaturedProject("no11JLUQmNI", "Employee Testimonial Alpha Net", "https://www.youtube.com/watch?v=no11JLUQmNI", "Long Form", "Alpha Net"),
+  createFeaturedProject("7RHcg3bsLP4", "Nova foundation introduction _ Alpha net Silver Jubilee", "https://www.youtube.com/watch?v=7RHcg3bsLP4", "Long Form", "Nova Foundation"),
+  createFeaturedProject("GglZ0mqxQyA", "Short documentary about Gaza for Nova foundation", "https://youtu.be/GglZ0mqxQyA", "Long Form", "Nova Foundation"),
+  createFeaturedProject("qxt_8dWBTZI", "Pure Pabnaiya। Rifat Official x Adda Noyon । Pabna city Song", "https://www.youtube.com/watch?v=qxt_8dWBTZI", "Long Form", "Rifat Official"),
+  createFeaturedProject("uI1jJ0z97TA", "Moon light development society Qurbani Project", "https://youtu.be/uI1jJ0z97TA", "Long Form", "Moonlight Foundation"),
+];
+
+export const featuredShortFormProjects: VideoProject[] = [
+  createFeaturedProject("gy3TFUQBoeY", "Reel Korean mart BD", "https://youtube.com/shorts/gy3TFUQBoeY", "Short Form"),
+  createFeaturedProject("2jvH6CiMqKU", "Reel show Case Real estate Speed Ramp", "https://youtube.com/shorts/2jvH6CiMqKU", "Short Form"),
+  createFeaturedProject("z18PPoKW-FI", "Islamic Reel", "https://www.youtube.com/shorts/z18PPoKW-FI", "Short Form"),
+  createFeaturedProject("02lkozZpmJ8", "Alpha Net CEO Reel 1", "https://www.youtube.com/shorts/02lkozZpmJ8", "Short Form"),
+  createFeaturedProject("ygspU8uyMLg", "Alpha Net CEO Reel 2", "https://www.youtube.com/shorts/ygspU8uyMLg", "Short Form"),
+];
+
+featuredVideoProjects.push(
+  ...featuredLongFormProjects,
+  ...featuredShortFormProjects
+);
 
 
 

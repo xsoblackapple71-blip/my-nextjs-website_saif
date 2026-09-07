@@ -9,8 +9,12 @@ import { Button } from "@/components/ui/button";
 import ProjectCard from "@/components/project-card";
 import type { VideoProject } from "@/types/videos";
 import { getVideoProjectsByCategory, getFeaturedProjects } from "@/lib/helper";
+import {
+  featuredLongFormProjects,
+  featuredShortFormProjects,
+} from "@/db/projects";
 
-// Mobile-only category filter component
+// Collapsed category filter shared by desktop and mobile.
 function MobileCategoryFilter({
   categories,
   selectedCategory,
@@ -25,7 +29,7 @@ function MobileCategoryFilter({
   const active = categories.find((c) => c.category === selectedCategory) || categories[0];
 
   return (
-    <div className="md:hidden mb-16">
+    <div className="mb-16">
       {!isExpanded ? (
         <div className="flex items-center justify-center gap-3">
           <button
@@ -138,8 +142,10 @@ export default function ProjectGrid({ initialCategories, initialProjects }: Proj
 
   const getInitialDisplayedProjects = (
     projects: VideoProject[],
-    targetId: string | null
+    targetId: string | null,
+    category: string
   ) => {
+    if (category === "Featured Projects") return projects;
     if (!targetId) {
       return projects.slice(0, ITEMS_PER_PAGE);
     }
@@ -159,7 +165,8 @@ export default function ProjectGrid({ initialCategories, initialProjects }: Proj
   const [displayedProjects, setDisplayedProjects] = useState<VideoProject[]>(() =>
     getInitialDisplayedProjects(
       getFilteredProjects(selectedCategoryFromUrl),
-      scrollToProjectId
+      scrollToProjectId,
+      selectedCategoryFromUrl
     )
   );
 
@@ -181,7 +188,7 @@ export default function ProjectGrid({ initialCategories, initialProjects }: Proj
     const shouldRestoreTarget =
       scrollToProjectId !== null && selectedCategory === selectedCategoryFromUrl;
     const nextDisplayedProjects = shouldRestoreTarget
-      ? getInitialDisplayedProjects(projects, scrollToProjectId)
+      ? getInitialDisplayedProjects(projects, scrollToProjectId, selectedCategory)
       : projects.slice(0, ITEMS_PER_PAGE);
 
     setAllProjects(projects);
@@ -209,59 +216,7 @@ export default function ProjectGrid({ initialCategories, initialProjects }: Proj
 
   return (
     <>
-        {/* Category Filter */}
-        {/* Desktop: keep original full list unchanged */}
-        <m.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="hidden md:flex flex-wrap justify-center gap-3 mb-16"
-        >
-            {initialCategories.map(({ category, count }) => {
-              const isFeatured = category === "Featured Projects";
-              const isActive = selectedCategory === category;
-              return (
-                <button
-                  key={category}
-                  onClick={() => {
-                    setSelectedCategory(category);
-                    // update URL so state is encoded in history and deep-links work
-                    try {
-                      router.push(`/?category=${encodeURIComponent(category)}`, { scroll: false });
-                    } catch (e) {
-                      // fallback: replace location
-                      if (typeof window !== 'undefined') {
-                        const url = new URL(window.location.href);
-                        url.searchParams.set('category', category);
-                        window.history.pushState({}, '', url.toString());
-                      }
-                    }
-                  }}
-                  className={`
-                    relative px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300
-                    ${isActive
-                      ? isFeatured
-                        ? "bg-gradient-to-r from-blue-400 via-cyan-400 to-violet-500 text-black shadow-[0_0_30px_rgba(59,130,246,0.45)] scale-105"
-                        : "bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.3)] scale-105"
-                      : isFeatured
-                        ? "bg-white/10 text-cyan-200 border border-cyan-300/10 hover:bg-cyan-500/10 hover:text-white"
-                        : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/5"
-                    }
-                  `}
-                >
-                  {category}
-                  <span className={`
-                    ml-2 text-[10px] px-1.5 py-0.5 rounded-full transition-colors
-                    ${isActive ? "bg-black text-white" : "bg-white/10 text-gray-400"}
-                  `}>
-                    {count}
-                  </span>
-                </button>
-              );
-            })}
-        </m.div>
-
-        {/* Mobile: compact control with expand/collapse. When collapsed show only active pill + More button; when expanded hide standalone pill and show full mapped list + Less button. */}
+        {/* Category Filter: collapsed by default, with all categories available through More. */}
         <MobileCategoryFilter
           categories={initialCategories}
           selectedCategory={selectedCategory}
@@ -280,23 +235,45 @@ export default function ProjectGrid({ initialCategories, initialProjects }: Proj
         />
 
         {/* Projects Grid */}
-        <m.div
-            layout
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
-        >
+        {selectedCategory === "Featured Projects" ? (
+          ([
+            ["Long Form", featuredLongFormProjects],
+            ["Short Form", featuredShortFormProjects],
+          ] as const).map(([title, projects]) => (
+            <section key={title} className="mb-16 last:mb-0">
+              <h3 className="mb-8 text-2xl font-semibold text-white">{title}</h3>
+              <m.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                {projects.map((project, index) => (
+                  <m.div
+                    key={project.id}
+                    layout
+                    id={`project-card-${project.id}`}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
+                  >
+                    <ProjectCard project={project} currentCategory={selectedCategory} />
+                  </m.div>
+                ))}
+              </m.div>
+            </section>
+          ))
+        ) : (
+          <m.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {displayedProjects.map((project, index) => (
-            <m.div
+              <m.div
                 key={project.id}
                 layout
                 id={`project-card-${project.id}`}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
-            >
+              >
                 <ProjectCard project={project} currentCategory={selectedCategory} />
-            </m.div>
+              </m.div>
             ))}
-        </m.div>
+          </m.div>
+        )}
 
         {/* Manual Load More Button */}
         {hasMore && (

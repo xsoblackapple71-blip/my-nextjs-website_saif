@@ -160,7 +160,77 @@ export default function ProjectCard({ project, currentCategory = "All" }: Projec
                                 </div>
                             </div>
 
-                            <div className="flex items-center gap-2">
+                            <div className="flex flex-wrap items-center justify-end gap-2">
+                                {project.id === "_bvTVyiPBno" && (
+                                    <Button
+                                        type="button"
+                                        size="sm"
+                                        variant="ghost"
+                                        className="h-8 whitespace-nowrap rounded-full border border-cyan-300/30 bg-cyan-400/10 px-3 text-[10px] font-medium text-cyan-200 hover:bg-cyan-400/20 hover:text-white"
+                                    >
+                                        SAAS style
+                                    </Button>
+                                )}
+                                {project.id === "YDVRnIduKA0" && (
+                                    <Button
+                                        type="button"
+                                        size="sm"
+                                        variant="ghost"
+                                        className="h-8 whitespace-nowrap rounded-full border border-cyan-300/30 bg-cyan-400/10 px-3 text-[10px] font-medium text-cyan-200 hover:bg-cyan-400/20 hover:text-white"
+                                    >
+                                        Podcast style
+                                    </Button>
+                                )}
+                                {project.id === "K8Z0ZklQdNY" && (
+                                    <Button
+                                        type="button"
+                                        size="sm"
+                                        variant="ghost"
+                                        className="h-8 whitespace-nowrap rounded-full border border-cyan-300/30 bg-cyan-400/10 px-3 text-[10px] font-medium text-cyan-200 hover:bg-cyan-400/20 hover:text-white"
+                                    >
+                                        TV content
+                                    </Button>
+                                )}
+                                {(project.id === "7RHcg3bsLP4" || project.id === "GglZ0mqxQyA") && (
+                                    <Button
+                                        type="button"
+                                        size="sm"
+                                        variant="ghost"
+                                        className="h-8 whitespace-nowrap rounded-full border border-cyan-300/30 bg-cyan-400/10 px-3 text-[10px] font-medium text-cyan-200 hover:bg-cyan-400/20 hover:text-white"
+                                    >
+                                        Short Documentary
+                                    </Button>
+                                )}
+                                {project.id === "no11JLUQmNI" && (
+                                    <Button
+                                        type="button"
+                                        size="sm"
+                                        variant="ghost"
+                                        className="h-8 whitespace-nowrap rounded-full border border-cyan-300/30 bg-cyan-400/10 px-3 text-[10px] font-medium text-cyan-200 hover:bg-cyan-400/20 hover:text-white"
+                                    >
+                                        Corporate Testimonial
+                                    </Button>
+                                )}
+                                {project.id === "qxt_8dWBTZI" && (
+                                    <Button
+                                        type="button"
+                                        size="sm"
+                                        variant="ghost"
+                                        className="h-8 whitespace-nowrap rounded-full border border-cyan-300/30 bg-cyan-400/10 px-3 text-[10px] font-medium text-cyan-200 hover:bg-cyan-400/20 hover:text-white"
+                                    >
+                                        Music Video
+                                    </Button>
+                                )}
+                                {project.id === "uI1jJ0z97TA" && (
+                                    <Button
+                                        type="button"
+                                        size="sm"
+                                        variant="ghost"
+                                        className="h-8 whitespace-nowrap rounded-full border border-cyan-300/30 bg-cyan-400/10 px-3 text-[10px] font-medium text-cyan-200 hover:bg-cyan-400/20 hover:text-white"
+                                    >
+                                        Charity
+                                    </Button>
+                                )}
                                 <Link href={`/project/${project.id}?category=${encodeURIComponent(currentCategory)}&scrollTo=${project.id}`}>
                                     <Button
                                         size="sm"

@@ -151,13 +151,7 @@ export const getVideoCategoriesWithCountIncludingAll = (): {
 };
 
 export function getFeaturedProjects(limit = 6): VideoProject[] {
-  const featured = featuredVideoProjects.slice(0, limit);
-  if (featured.length >= limit) return featured;
-
-  const fallback = getAllVideoProjects().filter(
-    (project) => !featured.some((item) => item.id === project.id)
-  );
-  return [...featured, ...fallback.slice(0, limit - featured.length)];
+  return featuredVideoProjects.slice(0, limit);
 }
 
 export function getClients(): Client[] {
