@@ -162,6 +162,13 @@ export function getClients(): Client[] {
 export const getYouTubeEmbedUrl = (url: string): string | null => {
   if (!url) return null;
 
+  const googleDriveMatch = url.match(
+    /drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/
+  );
+  if (googleDriveMatch) {
+    return `https://drive.google.com/file/d/${googleDriveMatch[1]}/preview`;
+  }
+
   // Handle Shorts
   if (url.includes("youtube.com/shorts/")) {
     const match = url.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/);
