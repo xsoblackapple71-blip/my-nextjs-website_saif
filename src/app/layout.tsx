@@ -11,6 +11,7 @@ import SmoothScroll from "@/components/smooth-scroll";
 import { Toaster } from "@/components/ui/sonner";
 import FramerLazyMotion from "@/components/framer-lazy-motion";
 import AnalyticsBeacon from "@/components/analytics-beacon";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"], display: "swap", preload: true });
 // const nunito = Nunito({ subsets: ["latin"] });q
@@ -166,6 +167,7 @@ export default function RootLayout({
           </SmoothScroll>
         </div>
         <AnalyticsBeacon />
+        <Analytics />
       </body>
     </html>
   );
